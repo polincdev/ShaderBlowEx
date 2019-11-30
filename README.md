@@ -10,11 +10,8 @@ float currentExposure=1.0;
 float currentGamma=1.0;
 
 BetterToneMapFilter betterToneMapFilter=new BetterToneMapFilter(currentType,currentExposure,currentGamma);
-
 FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
-
 fpp.addFilter(betterToneMapFilter);
-
 viewPort.addProcessor(fpp);
 ```
 
