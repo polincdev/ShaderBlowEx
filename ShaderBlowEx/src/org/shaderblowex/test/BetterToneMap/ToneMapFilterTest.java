@@ -273,7 +273,7 @@ public class ToneMapFilterTest extends SimpleApplication  implements ActionListe
         {
            currentGamma+=0.1;   
            debugText.setText("Exp:"+currentExposure+" Gamma:"+currentGamma +" Type:"+names[currentType]);
-	  // 
+	  //  
            betterToneMapFilter.setGamma(currentGamma);
         }   
         else if(name.equals("GammaDec"))
