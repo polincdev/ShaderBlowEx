@@ -11,7 +11,7 @@ uniform sampler2D m_Texture;
 uniform vec3 m_Color;
 uniform int  m_ToneMapType;
  
-
+ 
 //Linear
  vec3 LinearToneMapping( vec3 color,float exposure)
 {
