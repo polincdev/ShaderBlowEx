@@ -3,7 +3,7 @@ Extended filters library for JMonkey
 
 # 1. BetterToneMap
 
-### Usage:
+### Usage: 
 ```
 //Init
 int currentType=BetterToneMapFilter.BetterToneMapFilter.TYPE_LINEAR;
