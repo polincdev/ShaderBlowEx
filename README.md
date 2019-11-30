@@ -1,2 +1,2 @@
-# JMonkeyProjects
-Projects for JMonkey
+# ShaderBlowEx
+Extended filters library for JMonkey
