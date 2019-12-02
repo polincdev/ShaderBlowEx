@@ -1,0 +1,41 @@
+MaterialDef color sat shader {
+
+    MaterialParameters {
+        Int NumSamples
+        Int NumSamplesDepth
+        Texture2D Texture
+        Float Brightness
+        Float Contrast
+        Float Hue
+        Float Saturation
+        Float Invert
+        Float Red
+        Float Green
+        Float Blue
+        Float Gamma
+     }
+
+    Technique {
+        VertexShader GLSL100 GLSL150:   ShaderBlowEx/MatDefs/BetterColorCorrection/BetterColorCorrection.vert
+        FragmentShader GLSL100 GLSL150: ShaderBlowEx/MatDefs/BetterColorCorrection/BetterColorCorrection.frag
+
+        WorldParameters {
+            WorldViewProjectionMatrix
+        }
+
+        Defines {
+            RESOLVE_MS : NumSamples
+            RESOLVE_DEPTH_MS : NumSamplesDepth
+            USE_BRIGHTNESS : Brightness
+            USE_CONTRAST : Contrast
+            USE_HUE : Hue
+            USE_SATURATION : Saturation
+            USE_INVERT : Invert
+            USE_RED : Red
+            USE_GREEN : Green
+            USE_BLUE : Blue
+            USE_GAMMA : Gamma
+        }
+    }
+
+}

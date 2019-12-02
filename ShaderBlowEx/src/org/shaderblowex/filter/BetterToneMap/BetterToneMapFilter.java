@@ -75,7 +75,12 @@ public class BetterToneMapFilter extends Filter {
      * @param gamma Gamma. Default 1.0
      */
     public BetterToneMapFilter(int tonemapType, float exposure, float gamma) {
-                 
+      super("BetterToneMapFilter");
+     // 
+     checkIntArgument(tonemapType, 0, 35, "TonemapType"); 
+     checkFloatArgument(exposure, 0, 10f, "Exposure");
+     checkFloatArgument(gamma, 0, 10f, "Gamma");
+     //
      this.tonemapType=tonemapType;
      this.gamma=gamma;
      this.exposure=exposure;
@@ -152,7 +157,7 @@ public class BetterToneMapFilter extends Filter {
      */
     public void setExposure(float exposure) {
         
-        checkFloatArgument(exposure, 0, 10f, "Gamma");
+        checkFloatArgument(exposure, 0, 10f, "Exposure");
         
         if (material != null) {
             material.setFloat("Exposure", exposure);
