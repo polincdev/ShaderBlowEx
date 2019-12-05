@@ -334,11 +334,10 @@ public class ColorCorrectionFilterTest extends SimpleApplication  implements Act
         }       
     }
     
-    
-    void refreshDisplay()
-            {
-              debugText.setText("Cntr:"+currentContrast+" Brgh:"+currentBrightness+" Hue:"+currentHue+" Sat:"+currentSaturation+" Inv:"+currentInvert+" Gam:"+currentGamma+" R:"+currentRed+" G:"+currentGreen+" B:"+currentBlue);
-	     }
+ void refreshDisplay()
+    {
+      debugText.setText("Cntr:"+currentContrast+" Brgh:"+currentBrightness+" Hue:"+currentHue+" Sat:"+currentSaturation+" Inv:"+currentInvert+" Gam:"+currentGamma+" R:"+currentRed+" G:"+currentGreen+" B:"+currentBlue);
+     }
             
             
                 

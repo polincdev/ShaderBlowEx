@@ -33,7 +33,7 @@ import org.shaderblowex.filter.BetterToneMap.BetterToneMapFilter;
  *
  * @author xxx
  */
-public class ToneMapFilterTest extends SimpleApplication  implements ActionListener {
+public class BetterToneMapFilterTest extends SimpleApplication  implements ActionListener {
 
   BetterToneMapFilter betterToneMapFilter;
     
@@ -125,7 +125,7 @@ public class ToneMapFilterTest extends SimpleApplication  implements ActionListe
                                 };
  
   
- public   ToneMapFilterTest()
+ public   BetterToneMapFilterTest()
     {
         
     }
@@ -224,7 +224,7 @@ public class ToneMapFilterTest extends SimpleApplication  implements ActionListe
   /** Start the jMonkeyEngine application */
   public static void main(String[] args) {
        
-        ToneMapFilterTest app = new ToneMapFilterTest();
+        BetterToneMapFilterTest app = new BetterToneMapFilterTest();
          app.start();
      
   }

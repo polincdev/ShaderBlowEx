@@ -1,0 +1,26 @@
+MaterialDef Bleach {
+
+    MaterialParameters {
+        Int NumSamples
+        Int NumSamplesDepth
+        Texture2D Texture
+        Float m_Strenght;
+      
+ 
+    }
+
+    Technique {
+        VertexShader  GLSL100:   ShaderBlowEx/MatDefs/Bleach/Bleach.vert
+        FragmentShader  GLSL100: ShaderBlowEx/MatDefs/Bleach/Bleach.frag
+
+        WorldParameters {
+          
+        }
+
+        Defines {
+              NUM_SAMPLES : NumSamples
+           
+        }
+    }
+
+}
