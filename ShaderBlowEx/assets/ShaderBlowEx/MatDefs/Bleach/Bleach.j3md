@@ -4,7 +4,7 @@ MaterialDef Bleach {
         Int NumSamples
         Int NumSamplesDepth
         Texture2D Texture
-        Float m_Strenght;
+        Float Strength;
       
  
     }

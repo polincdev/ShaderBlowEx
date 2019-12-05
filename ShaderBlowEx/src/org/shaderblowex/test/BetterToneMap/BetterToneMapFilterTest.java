@@ -240,7 +240,7 @@ public class BetterToneMapFilterTest extends SimpleApplication  implements Actio
         {
            currentType++;   
            currentType=currentType%names.length;
-           debugText.setText("Exp:"+currentExposure+" Gam:"+currentGamma +" Type:"+names[currentType]);
+          refreshDisplay();
 	    //
            betterToneMapFilter.setType(types[currentType]);
         }
@@ -249,14 +249,14 @@ public class BetterToneMapFilterTest extends SimpleApplication  implements Actio
            currentType--;   
            if(currentType<0)
               currentType=(names.length-1);
-           debugText.setText("Exp:"+currentExposure+" Gam:"+currentGamma +" Type:"+names[currentType]);
+             refreshDisplay();
 	    //
            betterToneMapFilter.setType(types[currentType]);
         }
        else if(name.equals("ExpInc"))
         {
            currentExposure+=0.1;   
-           debugText.setText("Exp:"+currentExposure+" Gamma:"+currentGamma +" Type:"+names[currentType]);
+           refreshDisplay();
 	  //
            betterToneMapFilter.setExposure(currentExposure);
         }   
@@ -265,14 +265,14 @@ public class BetterToneMapFilterTest extends SimpleApplication  implements Actio
            currentExposure-=0.1;   
             if(currentExposure<0)
               currentExposure=0;
-           debugText.setText("Exp:"+currentExposure+" Gamma:"+currentGamma +" Type:"+names[currentType]);
+           refreshDisplay();
 	  //
            betterToneMapFilter.setExposure(currentExposure);
         } 
         else if(name.equals("GammaInc"))
         {
            currentGamma+=0.1;   
-           debugText.setText("Exp:"+currentExposure+" Gamma:"+currentGamma +" Type:"+names[currentType]);
+           refreshDisplay();
 	  //  
            betterToneMapFilter.setGamma(currentGamma);
         }   
@@ -281,9 +281,15 @@ public class BetterToneMapFilterTest extends SimpleApplication  implements Actio
            currentGamma-=0.1; 
              if(currentGamma<0)
               currentGamma=0;
-           debugText.setText("Exp:"+currentExposure+" Gamma:"+currentGamma +" Type:"+names[currentType]);
+           refreshDisplay();
 	  //
            betterToneMapFilter.setGamma(currentGamma);
         }   
     }
+
+void refreshDisplay()
+  {
+     debugText.setText("Exp:"+currentExposure+" Gamma:"+currentGamma +" Type:"+names[currentType]);
+	  
+  }
 }

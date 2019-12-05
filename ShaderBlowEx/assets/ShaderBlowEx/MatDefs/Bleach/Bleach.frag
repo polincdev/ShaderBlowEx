@@ -4,13 +4,13 @@
 uniform sampler2D m_Texture;
 varying vec2 texCoord;
   
-uniform float m_Strenght;
+uniform float m_Strength;
  
  vec4 val1 = vec4(1.0); 
  vec4 val2 = vec4(2.0); 
- vec4 lumiCoef = vec4(0.2125,0.7154,0.0721,0.0); 
+ vec4 lumiCoef = vec4(0.2124,0.7153,0.0722,0.0); 
 
-vec4 overlay(vec4 myInput, vec4 prevVal, vec4 size)
+vec4 bleach(vec4 myInput, vec4 prevVal, vec4 size)
             { 
              float luminance = dot(prevVal,lumiCoef); 
              float mixsize = clamp((luminance - 0.45) * 10.0, 0.0, 1.0);  
@@ -24,8 +24,8 @@ void main() {
    
     vec4 color= texture2D( m_Texture, texCoord ) ;
      //
-     vec4 luma = vec4(vec3(dot(pixel,lumiCoef)), pixel.a);  
-     gl_FragColor = bleach(luma, pixel, vec4(m_Strenght));  
+     vec4 luma = vec4(vec3(dot(color,lumiCoef)), color.a);  
+     gl_FragColor = bleach(luma, color, vec4(m_Strength));  
     
  
     }
