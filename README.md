@@ -74,3 +74,36 @@ https://hub.jmonkeyengine.org/t/i-made-a-post-filter-color-grading/31626
 
 ![ColorCorrectionFilterTest](../master/img/BetterColorCorrectionFilter.jpg)
 
+# 3. BetterDepthOfField
+
+## Usage: 
+```
+//Init
+float currentFocalDepth=0.5f;
+float currentFocalLength=75f;
+float currentFStop=16.0f;
+boolean currentAutoFocus=true;
+boolean currentShowFocus=false;
+//
+betterDepthOfFieldFilter=new BetterDepthOfFieldFilter( );
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(betterDepthOfFieldFilter);
+viewPort.addProcessor(fpp);
+//
+betterDepthOfFieldFilter.setFocalDepth(currentFocalDepth);
+betterDepthOfFieldFilter.setFocalLength(currentFocalLength);
+betterDepthOfFieldFilter.setfStop(currentFStop);
+betterDepthOfFieldFilter.setAutoFocus(currentAutoFocus);
+betterDepthOfFieldFilter.setShowFocus(currentShowFocus);
+```
+
+#### Credits:
+
+https://hub.jmonkeyengine.org/t/new-depth-of-field-effect/31036
+ 
+http://devlog-martinsh.blogspot.com/2011/12/glsl-depth-of-field-with-bokeh-v24.html
+
+#### Test:
+
+![ColorCorrectionFilterTest](../master/img/BetterDepthOfFieldFilter.jpg)
+
