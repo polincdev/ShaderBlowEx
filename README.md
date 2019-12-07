@@ -23,7 +23,7 @@ betterToneMapFilter.setGamma(2.2f);
 ```
 
 
-####Credits:
+#### Credits:
 
 https://github.com/tizian/tonemapper/
 
@@ -31,7 +31,7 @@ https://github.com/GPUOpen-Effects/FidelityFX
 
 https://github.com/cansik/processing-postfx
 
-####Test:
+#### Test:
 
 ![ToneMapFilterTest](../master/img/BetterToneMapFilter.jpg)
 
@@ -66,11 +66,11 @@ betterColorCorrectionFilter.setRed(currentRed);
 betterColorCorrectionFilter.setGreen(currentGreen);
 betterColorCorrectionFilter.setBlue(currentBlue);
 ```
-####Credits:
+#### Credits:
 
 https://hub.jmonkeyengine.org/t/i-made-a-post-filter-color-grading/31626
 
-####Test:
+#### Test:
 
 ![ColorCorrectionFilterTest](../master/img/BetterColorCorrectionFilter.jpg)
 
