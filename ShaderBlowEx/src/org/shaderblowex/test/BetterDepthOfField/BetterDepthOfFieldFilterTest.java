@@ -48,7 +48,7 @@ public class BetterDepthOfFieldFilterTest extends SimpleApplication  implements 
   float currentFocalLength=75f;
   float currentFStop=16.0f;
   boolean currentAutoFocus=true;
-   boolean currentShowFocus=false;
+  boolean currentShowFocus=false;
      
   
  public   BetterDepthOfFieldFilterTest()

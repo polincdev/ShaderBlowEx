@@ -16,7 +16,7 @@ uniform float m_Saturation;
   
  
 vec3 contrast_PerPixel( vec3 color,  float contrast){
-    color = ((color - 0.5) * max(contrast, 0)) + 0.5;
+    color = ((color - 0.5) * max(contrast, 0.0)) + 0.5;
     return color;
 }
 

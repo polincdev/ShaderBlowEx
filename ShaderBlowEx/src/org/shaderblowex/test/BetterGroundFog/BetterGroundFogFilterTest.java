@@ -128,7 +128,7 @@ public class BetterGroundFogFilterTest extends SimpleApplication  implements Act
 	hintText = new BitmapText(font);
 	hintText.setSize(font.getCharSet().getRenderedSize()*1.5f);
 	hintText.setColor(ColorRGBA.White);
-	hintText.setText("Lvl:1/2 Dens:3/4 Shin:5/6 BndX:7/8 BndY:9/0 BndZ:-/+ BndW:[/] Type:Space/Backspace");
+	hintText.setText("Lvl:1/2 Dens:3/4 Shin:5/6 BndX:7/8 BndY:9/0 BndZ:-/+ BndW:[/]");
 	hintText.setLocalTranslation(0, this.getCamera().getHeight()-10, 1.0f);
 	hintText.updateGeometricState();
         guiNode.attachChild(hintText);
@@ -301,6 +301,6 @@ public class BetterGroundFogFilterTest extends SimpleApplication  implements Act
  void refreshDisplay()
     {
    debugText.setText("Lvl:"+currentGroundLevel+" Dens:"+currentFogDensity +" Shin:"+currentSunShininess +" BndX:"+currentFogBoundaryX+" BndY:"+currentFogBoundaryY+" BndZ:"+currentFogBoundaryZ+" BndW:"+currentFogBoundaryW);
-  }
+    }
  
 }

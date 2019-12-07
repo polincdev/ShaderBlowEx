@@ -125,7 +125,7 @@ public class BokehDoFFilterTest extends SimpleApplication  implements ActionList
    
         //////////////////Filter//////////////////////
          bokehDoFFilter=new BokehDoFFilter( );
-          FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+         FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
          fpp.addFilter(bokehDoFFilter);
          viewPort.addProcessor(fpp);
         
