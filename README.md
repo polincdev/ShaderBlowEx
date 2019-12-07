@@ -22,6 +22,9 @@ betterToneMapFilter.setExposure(1.1f);
 betterToneMapFilter.setGamma(2.2f);
 ```
 
+#### Info
+
+https://en.wikipedia.org/wiki/Tone_mapping
 
 #### Credits:
 
@@ -66,6 +69,16 @@ betterColorCorrectionFilter.setRed(currentRed);
 betterColorCorrectionFilter.setGreen(currentGreen);
 betterColorCorrectionFilter.setBlue(currentBlue);
 ```
+#### Info
+
+https://en.wikipedia.org/wiki/Color_correction
+
+https://en.wikipedia.org/wiki/Color_grading
+
+https://en.wikipedia.org/wiki/Color_balance
+
+https://learning.linkedin.com/blog/design-tips/color-grading-vs--color-correction--what-s-the-difference-
+
 #### Credits:
 
 https://hub.jmonkeyengine.org/t/i-made-a-post-filter-color-grading/31626
@@ -97,6 +110,9 @@ betterDepthOfFieldFilter.setfStop(currentFStop);
 betterDepthOfFieldFilter.setAutoFocus(currentAutoFocus);
 betterDepthOfFieldFilter.setShowFocus(currentShowFocus);
 ```
+#### Info 
+
+https://en.wikipedia.org/wiki/Depth_of_field
 
 #### Credits:
 
@@ -200,6 +216,11 @@ bokehDoFFilter.setRadiusScale(currentRadiusScale);
 bokehDoFFilter.setBlurSize(currentBlurSize);
 bokehDoFFilter.setFocusScale(currentFocusScale); 
 ```
+
+### Info 
+
+https://en.wikipedia.org/wiki/Depth_of_field
+
 #### Credits:
 
 http://tuxedolabs.blogspot.com/2018/05/bokeh-depth-of-field-in-single-pass.html
