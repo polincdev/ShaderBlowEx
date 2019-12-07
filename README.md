@@ -107,3 +107,48 @@ http://devlog-martinsh.blogspot.com/2011/12/glsl-depth-of-field-with-bokeh-v24.h
 
 ![ColorCorrectionFilterTest](../master/img/BetterDepthOfFieldFilter.jpg)
 
+# 4. BetterGroundFog
+
+## Usage: 
+```
+//Init
+float currentSunShininess = 8.0f;
+float currentFogDensity = 0.08f;
+float currentGroundLevel = -10f;
+float currentFogBoundaryX=3;
+float currentFogBoundaryY=100;
+float currentFogBoundaryZ=50;
+float currentFogBoundaryW=0;
+Vector4f currentFogBoundary = new Vector4f(currentFogBoundaryX, currentFogBoundaryY, currentFogBoundaryZ, currentFogBoundaryW);
+//
+betterGroundFogState = new BetterGroundFogState();
+betterGroundFogState.setSun( sun); //put reference to sunlight 
+betterGroundFogState.getFilter().setGroundLevel(currentGroundLevel); 
+betterGroundFogState.getFilter().setFogDensity(currentFogDensity);
+betterGroundFogState.getFilter().setSunShininess(currentSunShininess);
+betterGroundFogState.getFilter().setFogBoundary(currentFogBoundary); 
+betterGroundFogState.setIsNight(true);              
+betterGroundFogState.setSunColorNight(new ColorRGBA(0.6f,0.6f, 0.6f, 1f));
+betterGroundFogState.setFogColorNight(new ColorRGBA(0.5f, 0.5f, 0.5f, 1f));
+stateManager.attach(betterGroundFogState);
+//
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(betterGroundFogState.getFilter());
+viewPort.addProcessor(fpp);
+//Modify
+betterGroundFogState.getFilter().setGroundLevel(currentGroundLevel);
+betterGroundFogState.getFilter().setFogDensity(currentFogDensity);
+betterGroundFogState.getFilter().setSunShininess(currentSunShininess);
+betterGroundFogState.getFilter().getFogBoundary().setX(currentFogBoundaryX);
+betterGroundFogState.getFilter().getFogBoundary().setY(currentFogBoundaryY);
+betterGroundFogState.getFilter().getFogBoundary().setZ(currentFogBoundaryZ);
+betterGroundFogState.getFilter().getFogBoundary().setW(currentFogBoundaryW);
+```
+
+#### Credits:
+
+https://hub.jmonkeyengine.org/t/bettergroundfogfilter/41452
+
+#### Test:
+
+![ColorCorrectionFilterTest](../master/img/BetterGroundFogFilter.jpg)
