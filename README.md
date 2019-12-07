@@ -229,7 +229,6 @@ viewPort.addProcessor(fpp);
 radialHaloGlow.setStrength(currentStrength);
 radialHaloGlow.setBrightness(currentBrightness); 
 ```
-//Init
 
 #### Credits:
 
