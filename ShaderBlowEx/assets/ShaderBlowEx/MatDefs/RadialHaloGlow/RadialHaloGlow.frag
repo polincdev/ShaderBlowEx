@@ -3,8 +3,8 @@
  //https://www.geeks3d.com/20140204/glsl-volumetric-light-post-processing-filter-for-webcam-video/
  uniform sampler2D m_Texture;
  varying vec2 texCoord;
- uniform  float m_Strength=50;
- uniform float m_Brightness=0.5;
+ uniform  float m_Strength;
+ uniform float m_Brightness;
 
  
  /*---------------------------------------------------------------------------*/
@@ -18,7 +18,7 @@ void main() {
   
    float pz=0.0;
    for (float i=0.;i<m_Strength;i++) 
-        pz += pow(max(0.,.0+length(T.rgb)/3.0),2.0+(1-m_Brightness))*exp(-i*.08);
+        pz += pow(max(0.,0.+length(T.rgb)/3.0),2.0+(1.-m_Brightness))*exp(-i*.08);
   gl_FragColor=vec4( o+pz*.5,1);
   
      

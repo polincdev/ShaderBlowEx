@@ -1,6 +1,7 @@
  
-package org.shaderblowex.test.RadialHaloGlow;
+package org.shaderblowex.test.BetterVignette;
  
+import org.shaderblowex.test.RadialHaloGlow.*;
 import org.shaderblowex.test.Bleach.*;
 import com.jme3.app.SimpleApplication;
 import com.jme3.font.BitmapFont;
@@ -18,6 +19,7 @@ import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Quad;
+import org.shaderblowex.filter.BetterVignette.BetterVignetteFilter;
 import org.shaderblowex.filter.Bleach.BleachMapFilter;
 import org.shaderblowex.filter.RadialHaloGlow.RadialHaloGlowFilter;
  
@@ -27,19 +29,19 @@ import org.shaderblowex.filter.RadialHaloGlow.RadialHaloGlowFilter;
  *
  * @author xxx
  */
-public class RadialHaloGlowFilterTest extends SimpleApplication  implements ActionListener {
+public class BetterVignetteFilterTest extends SimpleApplication  implements ActionListener {
 
-  RadialHaloGlowFilter radialHaloGlow;
+  BetterVignetteFilter betterVignetteFilter;
     
   BitmapText hintText;  
   BitmapText debugText; 
   
   
-  float currentStrength=30.0f;
-  float currentBrightness=0.5f;
+  float currentStrength=0.5f;
+  float currentExtent=50.0f;
    
   
- public   RadialHaloGlowFilterTest()
+ public   BetterVignetteFilterTest()
     {
         
     }
@@ -81,12 +83,12 @@ public class RadialHaloGlowFilterTest extends SimpleApplication  implements Acti
         //Keys
         inputManager.addMapping("StrDec", new KeyTrigger(KeyInput.KEY_1));
         inputManager.addMapping("StrInc", new KeyTrigger(KeyInput.KEY_2));
-         inputManager.addMapping("BrDec", new KeyTrigger(KeyInput.KEY_3));
-        inputManager.addMapping("BrInc", new KeyTrigger(KeyInput.KEY_4));
+         inputManager.addMapping("ExDec", new KeyTrigger(KeyInput.KEY_3));
+        inputManager.addMapping("ExInc", new KeyTrigger(KeyInput.KEY_4));
         inputManager.addListener(this, new String[]{"StrInc"});
         inputManager.addListener(this, new String[]{"StrDec"});
-        inputManager.addListener(this, new String[]{"BrInc"});
-        inputManager.addListener(this, new String[]{"BrDec"});
+        inputManager.addListener(this, new String[]{"ExInc"});
+        inputManager.addListener(this, new String[]{"ExDec"});
          
         //Text
         BitmapFont font =  getAssetManager().loadFont("Interface/Fonts/Default.fnt");
@@ -94,24 +96,24 @@ public class RadialHaloGlowFilterTest extends SimpleApplication  implements Acti
 	hintText = new BitmapText(font);
 	hintText.setSize(font.getCharSet().getRenderedSize()*1.5f);
 	hintText.setColor(ColorRGBA.White);
-	hintText.setText("Strength:1/2 Brightness:3/4");
+	hintText.setText("Strength:1/2 Extent:3/4");
 	hintText.setLocalTranslation(0, this.getCamera().getHeight()-10, 1.0f);
 	hintText.updateGeometricState();
         guiNode.attachChild(hintText);
         //Info
 	debugText=hintText.clone();
         debugText.setColor(ColorRGBA.White);
-	debugText.setText("Strength:"+currentStrength+" Brightness:"+currentBrightness );
+	debugText.setText("Strength:"+currentStrength+" Extent:"+currentExtent );
 	debugText.setLocalTranslation(0, hintText.getLocalTranslation().y-30, 1.0f);
 	debugText.updateGeometricState();
         guiNode.attachChild(debugText);
         
        
         //////////////////Filter//////////////////////
-         radialHaloGlow=new RadialHaloGlowFilter( );
+         betterVignetteFilter=new BetterVignetteFilter( );
         
          FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
-         fpp.addFilter(radialHaloGlow);
+         fpp.addFilter(betterVignetteFilter);
          viewPort.addProcessor(fpp);
         
       }
@@ -120,7 +122,7 @@ public class RadialHaloGlowFilterTest extends SimpleApplication  implements Acti
   /** Start the jMonkeyEngine application */
   public static void main(String[] args) {
        
-        RadialHaloGlowFilterTest app = new RadialHaloGlowFilterTest();
+        BetterVignetteFilterTest app = new BetterVignetteFilterTest();
          app.start();
      
   }
@@ -131,47 +133,47 @@ public class RadialHaloGlowFilterTest extends SimpleApplication  implements Acti
         
         if(!isPressed)
             return;
-       
+      
         if(name.equals("StrInc"))
         {
-           currentStrength+=1.0f;   
-           if(currentStrength>100.0)
-               currentStrength=100.0f;
+           currentStrength+=0.1f;   
+           if(currentStrength>1.0)
+               currentStrength=1.0f;
            refreshDisplay();
 	    //
-           radialHaloGlow.setStrength(currentStrength);
+           betterVignetteFilter.setVignetteStrength(currentStrength);
         }
         else  if(name.equals("StrDec"))
         {
-           currentStrength-=1.0f;   
+           currentStrength-=0.1f;   
            if(currentStrength<0)
               currentStrength=0;
            refreshDisplay();
 	    //
-           radialHaloGlow.setStrength(currentStrength);
+           betterVignetteFilter.setVignetteStrength(currentStrength);
         }
-            if(name.equals("BrInc"))
+      if(name.equals("ExInc"))
         {
-           currentBrightness+=0.1f;   
-           if(currentBrightness>1.0)
-               currentBrightness=1.0f;
+           currentExtent+=1.0f;   
+           if(currentExtent>100.0)
+               currentExtent=100.0f;
            refreshDisplay();
 	    //
-           radialHaloGlow.setBrightness(currentBrightness);
+           betterVignetteFilter.setVignetteExtent(currentExtent);
         }
-        else  if(name.equals("BrDec"))
+        else  if(name.equals("ExDec"))
         {
-           currentBrightness-=0.1f;   
-           if(currentBrightness<0)
-              currentBrightness=0;
+           currentExtent-=1.0f;   
+           if(currentExtent<0)
+              currentExtent=0;
            refreshDisplay();
 	    //
-           radialHaloGlow.setBrightness(currentBrightness);
-        }
+           betterVignetteFilter.setVignetteExtent(currentExtent);
+        } 
     }
 void refreshDisplay()
   {
-   debugText.setText("Strength:"+currentStrength+" Brightness:"+currentBrightness );
+   debugText.setText("Strength:"+currentStrength+" Extent:"+currentExtent );
 	  
   }    
     

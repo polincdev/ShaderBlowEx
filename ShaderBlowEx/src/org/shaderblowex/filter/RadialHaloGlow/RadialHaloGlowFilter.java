@@ -14,14 +14,14 @@ import com.jme3.texture.FrameBuffer;
 import com.jme3.texture.image.ImageRaster;
 import java.io.IOException;
  
-public class RadialHaloGlow extends Filter {
+public class RadialHaloGlowFilter extends Filter {
  
 private Material material;
-private float strength=50;
+private float strength=30;
 private float brightness=0.5f;
 
  
-public RadialHaloGlow() {
+public RadialHaloGlowFilter() {
 super("RadialHaloGlow");
 }
 
@@ -44,12 +44,14 @@ return material;
 public void setStrength(float newStrength) {
    strength=checkFloatArgument(newStrength, 0.0f, 100.0f );
    //
-  material.setFloat("Strength", strength);
+   if(material!=null)  
+     material.setFloat("Strength", strength);
 }
 public void setBrightness(float newStrength) {
    brightness=checkFloatArgument(newStrength, 0.0f, 1.0f );
    //
-  material.setFloat("Brightness", brightness);
+   if(material!=null)
+     material.setFloat("Brightness", brightness);
 }
 
  public float getStrength() {

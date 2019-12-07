@@ -1,0 +1,23 @@
+MaterialDef ColorScale {
+  
+    MaterialParameters {
+        Int NumSamples
+        Texture2D Texture
+       
+        Float VignetteStrength
+        Float VignetteExtent
+    }
+  
+    Technique {
+        VertexShader GLSL100:   ShaderBlowEx/MatDefs/BetterVignette/BetterVignette.vert
+        FragmentShader GLSL100: ShaderBlowEx/MatDefs/BetterVignette/BetterVignette.frag
+  
+        WorldParameters {
+            WorldViewProjectionMatrix
+            Time
+        }
+ 
+       
+    }
+   
+}
