@@ -74,6 +74,7 @@ https://hub.jmonkeyengine.org/t/i-made-a-post-filter-color-grading/31626
 
 ![ColorCorrectionFilterTest](../master/img/BetterColorCorrectionFilter.jpg)
 
+
 # 3. BetterDepthOfField
 
 ## Usage: 
@@ -156,10 +157,6 @@ https://hub.jmonkeyengine.org/t/bettergroundfogfilter/41452
 
 # 5. BleachFilter
 
-#### Info:
-
-http://en.wikipedia.org/wiki/Bleach_bypass
-
 ## Usage: 
 ```
 //Init
@@ -173,12 +170,17 @@ viewPort.addProcessor(fpp);
 bleachMapFilter.setStrength(currentStrength);
 ```
 
+#### Info:
+
+http://en.wikipedia.org/wiki/Bleach_bypass
+
 #### Test:
 
 ![ColorCorrectionFilterTest](../master/img/BleachFilter.jpg)
 
 
-# 6. BokeyDoFFilter
+
+# 6. BokehDoFFilter
 
 ## Usage: 
 ```
@@ -209,3 +211,30 @@ https://github.com/TheRealMJP/BakingLab/blob/master/BakingLab/PostProcessing.hls
 #### Test:
 
 ![ColorCorrectionFilterTest](../master/img/BokehDoFFilter.jpg)
+
+
+# 7. RadialHaloGlow
+
+## Usage: 
+```
+//Init
+float currentStrength=30.0f;
+float currentBrightness=0.5f;
+//
+RadialHaloGlowFilter radialHaloGlow=new RadialHaloGlowFilter( );
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(radialHaloGlow);
+viewPort.addProcessor(fpp);   
+//Modify
+radialHaloGlow.setStrength(currentStrength);
+radialHaloGlow.setBrightness(currentBrightness); 
+```
+//Init
+
+#### Credits:
+
+https://www.geeks3d.com/20140204/glsl-volumetric-light-post-processing-filter-for-webcam-video/
+
+#### Test:
+
+![ColorCorrectionFilterTest](../master/img/RadialHaloGlowFilter.jpg)
