@@ -107,7 +107,7 @@ http://devlog-martinsh.blogspot.com/2011/12/glsl-depth-of-field-with-bokeh-v24.h
 
 ![ColorCorrectionFilterTest](../master/img/BetterDepthOfFieldFilter.jpg)
 
-# 4. BetterGroundFog
+# 4. BetterGroundFogFilter
 
 ## Usage: 
 ```
@@ -121,7 +121,7 @@ float currentFogBoundaryZ=50;
 float currentFogBoundaryW=0;
 Vector4f currentFogBoundary = new Vector4f(currentFogBoundaryX, currentFogBoundaryY, currentFogBoundaryZ, currentFogBoundaryW);
 //
-betterGroundFogState = new BetterGroundFogState();
+BetterGroundFogState betterGroundFogState = new BetterGroundFogState();
 betterGroundFogState.setSun( sun); //put reference to sunlight 
 betterGroundFogState.getFilter().setGroundLevel(currentGroundLevel); 
 betterGroundFogState.getFilter().setFogDensity(currentFogDensity);
@@ -152,3 +152,28 @@ https://hub.jmonkeyengine.org/t/bettergroundfogfilter/41452
 #### Test:
 
 ![ColorCorrectionFilterTest](../master/img/BetterGroundFogFilter.jpg)
+
+
+# 5. BleachFilter
+
+#### Info:
+
+http://en.wikipedia.org/wiki/Bleach_bypass
+
+## Usage: 
+```
+//Init
+float currentStrength=1.0f;
+//
+BleachMapFilter bleachMapFilter=new BleachMapFilter(currentStrength);
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(bleachMapFilter);
+viewPort.addProcessor(fpp);
+//Modify
+bleachMapFilter.setStrength(currentStrength);
+```
+
+#### Test:
+
+![ColorCorrectionFilterTest](../master/img/BleachFilter.jpg)
+
