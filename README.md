@@ -177,3 +177,35 @@ bleachMapFilter.setStrength(currentStrength);
 
 ![ColorCorrectionFilterTest](../master/img/BleachFilter.jpg)
 
+
+# 6. BokeyDoFFilter
+
+## Usage: 
+```
+//Init
+float currentFocusPoint=8.0f;
+float currentRadiusScale=0.5f;
+float currentBlurSize=3.0f;
+float currentFocusScale=5.0f;
+//
+BokehDoFFilter  bokehDoFFilter=new BokehDoFFilter( );
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(bokehDoFFilter);
+viewPort.addProcessor(fpp);
+//Modify
+bokehDoFFilter.setFocusPoint(currentFocusPoint);
+bokehDoFFilter.setRadiusScale(currentRadiusScale);
+bokehDoFFilter.setBlurSize(currentBlurSize);
+bokehDoFFilter.setFocusScale(currentFocusScale); 
+```
+#### Credits:
+
+http://tuxedolabs.blogspot.com/2018/05/bokeh-depth-of-field-in-single-pass.html
+
+https://mynameismjp.wordpress.com/the-museum/samples-tutorials-tools/depth-of-field-sample/
+
+https://github.com/TheRealMJP/BakingLab/blob/master/BakingLab/PostProcessing.hlsl#L160
+
+#### Test:
+
+![ColorCorrectionFilterTest](../master/img/BokehDoFFilter.jpg)
