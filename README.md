@@ -1,9 +1,11 @@
 # ShaderBlowEx
-Extended filters library for JMonkey
+Extended filters library for JMonkey Game Engine
+
+https://jmonkeyengine.org
 
 # 1. BetterToneMap
 
-### Usage: 
+## Usage: 
 ```
 //Init
 int currentType=BetterToneMapFilter.BetterToneMapFilter.TYPE_LINEAR;
@@ -21,7 +23,7 @@ betterToneMapFilter.setGamma(2.2f);
 ```
 
 
-Credits:
+####Credits:
 
 https://github.com/tizian/tonemapper/
 
@@ -29,6 +31,46 @@ https://github.com/GPUOpen-Effects/FidelityFX
 
 https://github.com/cansik/processing-postfx
 
-Test:
+####Test:
 
 ![ToneMapFilterTest](../master/img/BetterToneMapFilter.jpg)
+
+
+# 2. BetterColorCorrection
+
+## Usage: 
+```
+//Init
+float currentContrast=1.0f;
+float currentBrightness=0.0f;
+float currentHue=0.0f;
+float currentInvert=0.0f;
+float currentRed=1.0f;
+float currentGreen=1.0f;
+float currentBlue=1.0f;
+float currentGamma=1.0f;
+float currentSaturation=0.0f;
+//
+BetterColorCorrectionFilter betterColorCorrectionFilter=new BetterColorCorrectionFilter(currentContrast, currentBrightness,currentHue, currentSaturation,currentInvert,currentRed, currentGreen, currentBlue, currentGamma); 
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(betterColorCorrectionFilter);
+viewPort.addProcessor(fpp);
+//Modify
+betterColorCorrectionFilter.setContrast(currentContrast);
+betterColorCorrectionFilter.setBrightness(currentBrightness);
+betterColorCorrectionFilter.setHue(currentHue);
+betterColorCorrectionFilter.setSaturation(currentSaturation);
+betterColorCorrectionFilter.setGamma(currentGamma);
+betterColorCorrectionFilter.setInvert(currentInvert);
+betterColorCorrectionFilter.setRed(currentRed);
+betterColorCorrectionFilter.setGreen(currentGreen);
+betterColorCorrectionFilter.setBlue(currentBlue);
+```
+####Credits:
+
+https://hub.jmonkeyengine.org/t/i-made-a-post-filter-color-grading/31626
+
+####Test:
+
+![ColorCorrectionFilterTest](../master/img/BetterColorCorrectionFilter.jpg)
+
