@@ -6,6 +6,10 @@ MaterialDef ColorScale {
        
         Float VignetteStrength
         Float VignetteExtent
+        Float BlurQuality 
+        Float BlurSize 
+        Float GrayPower 
+        Float GrayMargin 
     }
   
     Technique {
