@@ -151,8 +151,8 @@ public class PixelArtFilterTest extends SimpleApplication  implements ActionList
 	//Hint
 	hintText = new BitmapText(font);
 	hintText.setSize(font.getCharSet().getRenderedSize()*1.5f);
-	hintText.setColor(ColorRGBA.White);
-	hintText.setText("EdgeWid:1/2 ClrScal:3/4 ClrCount:5/6 PxlRes:7/8 PaletteType:-/+" );
+	hintText.setColor(ColorRGBA.Red);
+	hintText.setText("EdgeWid:1/2 ClrScal:3/4 ClrCount:5/6 PxlRes:7/8 PaletteType:9/0" );
 	hintText.setLocalTranslation(0, this.getCamera().getHeight()-10, 1.0f);
 	hintText.updateGeometricState();
         guiNode.attachChild(hintText);

@@ -127,7 +127,7 @@ public class BetterGroundFogFilterTest extends SimpleApplication  implements Act
 	//Hint
 	hintText = new BitmapText(font);
 	hintText.setSize(font.getCharSet().getRenderedSize()*1.5f);
-	hintText.setColor(ColorRGBA.White);
+	hintText.setColor(ColorRGBA.Red);
 	hintText.setText("Lvl:1/2 Dens:3/4 Shin:5/6 BndX:7/8 BndY:9/0 BndZ:-/+ BndW:[/]");
 	hintText.setLocalTranslation(0, this.getCamera().getHeight()-10, 1.0f);
 	hintText.updateGeometricState();
@@ -174,25 +174,7 @@ public class BetterGroundFogFilterTest extends SimpleApplication  implements Act
         
         if(!isPressed)
             return;
-        /*
-        if(name.equals("NextType"))
-        {
-           currentType++;   
-           currentType=currentType%names.length;
-           debugText.setText("Exp:"+currentExposure+" Gam:"+currentGamma +" Type:"+names[currentType]);
-	    //
-           betterToneMapFilter.setType(types[currentType]);
-        }
-        else  if(name.equals("PrevType"))
-        {
-           currentType--;   
-           if(currentType<0)
-              currentType=(names.length-1);
-           debugText.setText("Exp:"+currentExposure+" Gam:"+currentGamma +" Type:"+names[currentType]);
-	    //
-           betterToneMapFilter.setType(types[currentType]);
-        }
-        */
+       
        if(name.equals("LevelInc"))
         {
            currentGroundLevel+=1.0;   

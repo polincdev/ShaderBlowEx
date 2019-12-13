@@ -1,5 +1,6 @@
  
-package org.shaderblowex.test.Bleach;
+package org.shaderblowex.test.Posterization;
+ 
  
 import com.jme3.app.SimpleApplication;
 import com.jme3.font.BitmapFont;
@@ -18,6 +19,7 @@ import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Quad;
 import org.shaderblowex.filter.Bleach.BleachFilter;
+import org.shaderblowex.filter.Posterization.PosterizationFilter;
  
  
 
@@ -25,18 +27,18 @@ import org.shaderblowex.filter.Bleach.BleachFilter;
  *
  * @author xxx
  */
-public class BleachFilterTest extends SimpleApplication  implements ActionListener {
+public class PosterizationFilterTest extends SimpleApplication  implements ActionListener {
 
-  BleachFilter bleachMapFilter;
+  PosterizationFilter posterizationFilter;
     
   BitmapText hintText;  
   BitmapText debugText; 
   
   
-  float currentStrength=1.0f;
+  float currentStep=10.0f;
    
   
- public   BleachFilterTest()
+ public   PosterizationFilterTest()
     {
         
     }
@@ -87,24 +89,24 @@ public class BleachFilterTest extends SimpleApplication  implements ActionListen
 	hintText = new BitmapText(font);
 	hintText.setSize(font.getCharSet().getRenderedSize()*1.5f);
 	hintText.setColor(ColorRGBA.Red);
-	hintText.setText("Strength:+/-");
+	hintText.setText("Step:+/-");
 	hintText.setLocalTranslation(0, this.getCamera().getHeight()-10, 1.0f);
 	hintText.updateGeometricState();
         guiNode.attachChild(hintText);
         //Info
 	debugText=hintText.clone();
         debugText.setColor(ColorRGBA.White);
-	debugText.setText("Strength:"+currentStrength );
+	debugText.setText("Step:"+currentStep  );
 	debugText.setLocalTranslation(0, hintText.getLocalTranslation().y-30, 1.0f);
 	debugText.updateGeometricState();
         guiNode.attachChild(debugText);
         
        
         //////////////////Filter//////////////////////
-         bleachMapFilter=new BleachFilter(currentStrength);
+         posterizationFilter=new PosterizationFilter(currentStep);
         
          FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
-         fpp.addFilter(bleachMapFilter);
+         fpp.addFilter(posterizationFilter);
          viewPort.addProcessor(fpp);
         
       }
@@ -113,7 +115,7 @@ public class BleachFilterTest extends SimpleApplication  implements ActionListen
   /** Start the jMonkeyEngine application */
   public static void main(String[] args) {
        
-        BleachFilterTest app = new BleachFilterTest();
+        PosterizationFilterTest app = new PosterizationFilterTest();
          app.start();
      
   }
@@ -127,27 +129,27 @@ public class BleachFilterTest extends SimpleApplication  implements ActionListen
        
         if(name.equals("StrInc"))
         {
-           currentStrength+=0.1f;   
-           if(currentStrength>5.0)
-               currentStrength=5.0f;
+           currentStep+=1.0f;   
+           if(currentStep>50.0)
+               currentStep=50.0f;
            refreshDisplay();
 	    //
-           bleachMapFilter.setStrength(currentStrength);
+           posterizationFilter.setStep(currentStep);
         }
         else  if(name.equals("StrDec"))
         {
-           currentStrength-=0.1f;   
-           if(currentStrength<0)
-              currentStrength=0;
+           currentStep-=1.0f;   
+           if(currentStep<1)
+              currentStep=1;
            refreshDisplay();
 	    //
-           bleachMapFilter.setStrength(currentStrength);
+           posterizationFilter.setStep(currentStep);
         }
        
     }
 void refreshDisplay()
   {
-    debugText.setText("Strength:"+currentStrength );
+    debugText.setText("Step:"+currentStep );
 	  
   }    
     

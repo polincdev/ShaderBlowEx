@@ -21,19 +21,18 @@ import com.jme3.renderer.ViewPort;
 import java.io.IOException;
 
  
-public class BleachMapFilter extends Filter {
+public class BleachFilter extends Filter {
  
     private static final float DEFAULT_STRENGTH=0.1f;  
             
-   // private int tonemapType=DEFAULT_TONEMAP_TYPE;
-    private float strength=DEFAULT_STRENGTH;
+     private float strength=DEFAULT_STRENGTH;
      
     /**
      * Creates a bleach filter with the specified strength. 
      * Bleach - washed out, desaturated look from Saving Private Ryan or Minority Report
       * @param strength Strength. Default 0.1. Max 5.0. Min 0.0
      */
-    public BleachMapFilter(  float strength) {
+    public BleachFilter(  float strength) {
       super("BleachMapFilter");
      // 
       checkFloatArgument(strength, 0f, 5f, "Strength");

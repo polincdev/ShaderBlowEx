@@ -109,7 +109,7 @@ public class BokehDoFFilterTest extends SimpleApplication  implements ActionList
 	//Hint
 	hintText = new BitmapText(font);
 	hintText.setSize(font.getCharSet().getRenderedSize()*1.5f);
-	hintText.setColor(ColorRGBA.White);
+	hintText.setColor(ColorRGBA.Red);
 	hintText.setText("FocusPoint:1/2 RadiusScale:3/4 BlurSize:5/6 FocusScale:7/8" );
 	hintText.setLocalTranslation(0, this.getCamera().getHeight()-10, 1.0f);
 	hintText.updateGeometricState();

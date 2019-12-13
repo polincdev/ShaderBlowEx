@@ -123,7 +123,7 @@ public class BetterDepthOfFieldFilterTest extends SimpleApplication  implements 
         guiNode.attachChild(hintText);
         //Info
 	debugText=hintText.clone();
-        debugText.setColor(ColorRGBA.White);
+        debugText.setColor(ColorRGBA.Red);
 	debugText.setText("FocDepth:"+currentFocalDepth+" FocLength:"+currentFocalLength+" FStop:"+currentFStop+" AutoFocus:"+currentAutoFocus+" ShowFocus:"+currentShowFocus   );
 	debugText.setLocalTranslation(0, hintText.getLocalTranslation().y-30, 1.0f);
 	debugText.updateGeometricState();

@@ -197,7 +197,7 @@ public class BetterToneMapFilterTest extends SimpleApplication  implements Actio
 	//Hint
 	hintText = new BitmapText(font);
 	hintText.setSize(font.getCharSet().getRenderedSize()*1.5f);
-	hintText.setColor(ColorRGBA.White);
+	hintText.setColor(ColorRGBA.Red);
 	hintText.setText("Exposure:+/- Gamma:[/] Type:Space/Backspace");
 	hintText.setLocalTranslation(0, this.getCamera().getHeight()-10, 1.0f);
 	hintText.updateGeometricState();

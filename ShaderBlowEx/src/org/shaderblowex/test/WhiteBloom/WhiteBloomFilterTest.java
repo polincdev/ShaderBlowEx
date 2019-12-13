@@ -1,5 +1,6 @@
  
-package org.shaderblowex.test.Bleach;
+package org.shaderblowex.test.WhiteBloom;
+ 
  
 import com.jme3.app.SimpleApplication;
 import com.jme3.font.BitmapFont;
@@ -18,6 +19,7 @@ import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Quad;
 import org.shaderblowex.filter.Bleach.BleachFilter;
+import org.shaderblowex.filter.WhiteBloom.WhiteBloomFilter;
  
  
 
@@ -25,18 +27,19 @@ import org.shaderblowex.filter.Bleach.BleachFilter;
  *
  * @author xxx
  */
-public class BleachFilterTest extends SimpleApplication  implements ActionListener {
+public class WhiteBloomFilterTest extends SimpleApplication  implements ActionListener {
 
-  BleachFilter bleachMapFilter;
+  WhiteBloomFilter whiteBloomFilter;
     
   BitmapText hintText;  
   BitmapText debugText; 
   
   
   float currentStrength=1.0f;
+  float currentScale=256f;
    
   
- public   BleachFilterTest()
+ public   WhiteBloomFilterTest()
     {
         
     }
@@ -78,8 +81,12 @@ public class BleachFilterTest extends SimpleApplication  implements ActionListen
         //Keys
         inputManager.addMapping("StrInc", new KeyTrigger(KeyInput.KEY_EQUALS));
         inputManager.addMapping("StrDec", new KeyTrigger(KeyInput.KEY_MINUS));
+        inputManager.addMapping("SclInc", new KeyTrigger(KeyInput.KEY_2));
+        inputManager.addMapping("SclDec", new KeyTrigger(KeyInput.KEY_1));
         inputManager.addListener(this, new String[]{"StrInc"});
         inputManager.addListener(this, new String[]{"StrDec"});
+        inputManager.addListener(this, new String[]{"SclInc"});
+        inputManager.addListener(this, new String[]{"SclDec"});
          
         //Text
         BitmapFont font =  getAssetManager().loadFont("Interface/Fonts/Default.fnt");
@@ -87,24 +94,24 @@ public class BleachFilterTest extends SimpleApplication  implements ActionListen
 	hintText = new BitmapText(font);
 	hintText.setSize(font.getCharSet().getRenderedSize()*1.5f);
 	hintText.setColor(ColorRGBA.Red);
-	hintText.setText("Strength:+/-");
+	hintText.setText("Scale: 1/2 Strength:+/-");
 	hintText.setLocalTranslation(0, this.getCamera().getHeight()-10, 1.0f);
 	hintText.updateGeometricState();
         guiNode.attachChild(hintText);
         //Info
 	debugText=hintText.clone();
         debugText.setColor(ColorRGBA.White);
-	debugText.setText("Strength:"+currentStrength );
+	debugText.setText("Scale:"+currentScale+" Strength:"+currentStrength );
 	debugText.setLocalTranslation(0, hintText.getLocalTranslation().y-30, 1.0f);
 	debugText.updateGeometricState();
         guiNode.attachChild(debugText);
         
        
         //////////////////Filter//////////////////////
-         bleachMapFilter=new BleachFilter(currentStrength);
+         whiteBloomFilter=new WhiteBloomFilter(currentStrength);
         
          FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
-         fpp.addFilter(bleachMapFilter);
+         fpp.addFilter(whiteBloomFilter);
          viewPort.addProcessor(fpp);
         
       }
@@ -113,7 +120,7 @@ public class BleachFilterTest extends SimpleApplication  implements ActionListen
   /** Start the jMonkeyEngine application */
   public static void main(String[] args) {
        
-        BleachFilterTest app = new BleachFilterTest();
+        WhiteBloomFilterTest app = new WhiteBloomFilterTest();
          app.start();
      
   }
@@ -128,11 +135,11 @@ public class BleachFilterTest extends SimpleApplication  implements ActionListen
         if(name.equals("StrInc"))
         {
            currentStrength+=0.1f;   
-           if(currentStrength>5.0)
-               currentStrength=5.0f;
+           if(currentStrength>10.0)
+               currentStrength=10.0f;
            refreshDisplay();
 	    //
-           bleachMapFilter.setStrength(currentStrength);
+           whiteBloomFilter.setStrength(currentStrength);
         }
         else  if(name.equals("StrDec"))
         {
@@ -141,13 +148,31 @@ public class BleachFilterTest extends SimpleApplication  implements ActionListen
               currentStrength=0;
            refreshDisplay();
 	    //
-           bleachMapFilter.setStrength(currentStrength);
+           whiteBloomFilter.setStrength(currentStrength);
+        }
+        else   if(name.equals("SclInc"))
+        {
+           currentScale+=10.0f;   
+           if(currentScale>2048.0)
+               currentScale=2048.0f;
+           refreshDisplay();
+	    //
+           whiteBloomFilter.setScale(currentScale);
+        }
+        else  if(name.equals("SclDec"))
+        {
+           currentScale-=10.0f;   
+           if(currentScale<0)
+              currentScale=0;
+           refreshDisplay();
+	    //
+           whiteBloomFilter.setScale(currentScale);
         }
        
     }
 void refreshDisplay()
   {
-    debugText.setText("Strength:"+currentStrength );
+  debugText.setText("Scale:"+currentScale+" Strength:"+currentStrength );
 	  
   }    
     
