@@ -49,17 +49,14 @@ public class RadialHaloGlowFilterTest extends SimpleApplication  implements Acti
         
         //No stats
         setDisplayStatView(false);
-        setDisplayFps(false);
+        setDisplayFps(true);
         //faster cam
         cam.setLocation(cam.getLocation().addLocal(0, 2f, 0));
         flyCam.setMoveSpeed(2.0f);
-        //2D  reference image
-        Geometry geometry= new Geometry("ToneMapFilterGeo",new Quad( this.getCamera().getWidth()/3  , this.getCamera().getHeight()/3  ));
-        Material    geoMat = new Material(this.getAssetManager(),  "Common/MatDefs/Misc/Unshaded.j3md");
+          //2D  reference image
+         Material    geoMat = new Material(this.getAssetManager(),  "Common/MatDefs/Misc/Unshaded.j3md");
         geoMat.setTexture("ColorMap", assetManager.loadTexture("ShaderBlowEx/Textures/test.png")); 
-        geometry.setMaterial(geoMat);
-        guiNode.attachChild(geometry);
-        
+         
         
          //Scene
          Spatial scene= assetManager.loadModel("ShaderBlowEx/Models/testScene.j3o");

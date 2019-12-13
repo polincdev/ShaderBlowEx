@@ -1,32 +1,24 @@
- 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.shaderblowex.test.BetterToneMap;
 
- 
-import com.jme3.app.SimpleApplication;
+import com.jme3.app.Application;
+import com.jme3.app.state.BaseAppState;
+import com.jme3.asset.AssetManager;
 import com.jme3.font.BitmapFont;
 import com.jme3.font.BitmapText;
+import com.jme3.input.InputManager;
 import com.jme3.input.KeyInput;
 import com.jme3.input.controls.ActionListener;
 import com.jme3.input.controls.KeyTrigger;
-import com.jme3.light.AmbientLight;
-import com.jme3.light.DirectionalLight;
-import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
-import com.jme3.math.FastMath;
-import com.jme3.math.Vector3f;
 import com.jme3.post.FilterPostProcessor;
-import com.jme3.renderer.queue.RenderQueue;
-import com.jme3.scene.Geometry;
+import com.jme3.renderer.Camera;
+import com.jme3.renderer.ViewPort;
 import com.jme3.scene.Node;
-import com.jme3.scene.Spatial;
-import com.jme3.scene.shape.Box;
-import com.jme3.scene.shape.Quad;
-import com.jme3.shadow.DirectionalLightShadowFilter;
-import com.jme3.shadow.DirectionalLightShadowRenderer;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.shaderblowex.filter.BetterColorCorrection.BetterColorCorrectionFilter;
 import org.shaderblowex.filter.BetterToneMap.BetterToneMapFilter;
 
@@ -34,9 +26,13 @@ import org.shaderblowex.filter.BetterToneMap.BetterToneMapFilter;
  *
  * @author xxx
  */
-public class BetterToneMapAndColorCorrectionTest extends SimpleApplication  implements ActionListener {
+public class BetterTMAndCCTestState  extends BaseAppState  implements ActionListener{
 
-  BetterToneMapFilter betterToneMapFilter;
+    Node rootNode;
+    Node guiNode;
+    InputManager inputManager;
+      
+    BetterToneMapFilter betterToneMapFilter;
   BetterColorCorrectionFilter betterColorCorrectionFilter;
   BitmapText hintText;  
   BitmapText debugText; 
@@ -137,62 +133,13 @@ public class BetterToneMapAndColorCorrectionTest extends SimpleApplication  impl
                                  
                                 };
  
-  
- public   BetterToneMapAndColorCorrectionTest()
-    {
-        
-    }
-    
-    @Override
-    public void simpleInitApp() {
-        
-        //No stats
-        setDisplayStatView(false);
-        setDisplayFps(false);
-        //Background color
-        viewPort.setBackgroundColor(ColorRGBA.Gray);
-        //faster cam
-        cam.setLocation(cam.getLocation().addLocal(0, 2f, 0));
-        flyCam.setMoveSpeed(2.0f);
-        //2D  reference image
-        Geometry geometry= new Geometry("ToneMapFilterGeo",new Quad( this.getCamera().getWidth()/3  , this.getCamera().getHeight()/3  ));
-        Material    geoMat = new Material(this.getAssetManager(),  "Common/MatDefs/Misc/Unshaded.j3md");
-        geoMat.setTexture("ColorMap", assetManager.loadTexture("ShaderBlowEx/Textures/test.png")); 
-        geometry.setMaterial(geoMat);
-        guiNode.attachChild(geometry);
-        
-        
-         //Scene
-         Spatial scene= assetManager.loadModel("ShaderBlowEx/Models/testScene.j3o");
-         Node sceneAsNode=((Node)((Node)scene).getChild("Scene"));
-         rootNode.attachChild(sceneAsNode);
-         //Tex for the ground for comparison
-         sceneAsNode.getChild("Plane").setMaterial(geoMat);
-         
-        //Light
-        DirectionalLight sun = new DirectionalLight();
-        sun.setColor(ColorRGBA.White);
-        sun.setDirection(new Vector3f( -.5f, -.5f, -.5f).normalizeLocal());
-        sceneAsNode.addLight(sun);
-        
-        AmbientLight al = new AmbientLight();
-        al.setColor(ColorRGBA.White.mult(0.1f));
-        sceneAsNode.addLight(al);
-        
-        /*
-        //Shadows
-         DirectionalLightShadowFilter dlsf = new DirectionalLightShadowFilter(assetManager, 1024, 3);
-        dlsf.setLight(sun);
-        dlsf.setEnabled(true);
-        FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
-        fpp.addFilter(dlsf);
-        viewPort.addProcessor(fpp);
-        //
-        for(Spatial child: sceneAsNode.getChildren())
-           child.setShadowMode(RenderQueue.ShadowMode.CastAndReceive);//CastAndReceive
-         */
-        
-        //Keys
+
+    public BetterTMAndCCTestState(Node rootNode, Node guiNode,InputManager inputManager,AssetManager assetManager, Camera camera, ViewPort viewPort)
+     {
+         this.rootNode=rootNode;
+         this.guiNode=guiNode;
+         this.inputManager=inputManager;
+      //Keys
         inputManager.addMapping("NextType", new KeyTrigger(KeyInput.KEY_SPACE));
         inputManager.addMapping("PrevType", new KeyTrigger(KeyInput.KEY_BACK));
         inputManager.addMapping("ExpInc", new KeyTrigger(KeyInput.KEY_P));
@@ -247,13 +194,13 @@ public class BetterToneMapAndColorCorrectionTest extends SimpleApplication  impl
         inputManager.addListener(this, new String[]{"InvrtInc"});
        
         //Text
-        BitmapFont font =  getAssetManager().loadFont("Interface/Fonts/Default.fnt");
+        BitmapFont font =  assetManager.loadFont("Interface/Fonts/Default.fnt");
 	//Hint
 	hintText = new BitmapText(font);
 	hintText.setSize(font.getCharSet().getRenderedSize()*1.5f);
 	hintText.setColor(ColorRGBA.Red);
 	hintText.setText("Exposure:O/P Gamma:K/L Type:Space/Backspace");
-	hintText.setLocalTranslation(0, this.getCamera().getHeight()-10, 1.0f);
+	hintText.setLocalTranslation(0, camera.getHeight()-10, 1.0f);
 	hintText.updateGeometricState();
         guiNode.attachChild(hintText);
         //Info
@@ -280,6 +227,7 @@ public class BetterToneMapAndColorCorrectionTest extends SimpleApplication  impl
 	debugText2.setLocalTranslation(0, hintText2.getLocalTranslation().y-30, 1.0f);
 	debugText2.updateGeometricState();
         guiNode.attachChild(debugText2);
+        
         //////////////////Filter//////////////////////
          betterToneMapFilter=new BetterToneMapFilter(currentType,currentExposure,currentGamma);
          betterColorCorrectionFilter=new BetterColorCorrectionFilter(currentContrast, currentBrightness,currentHue, currentSaturation,currentInvert,currentRed, currentGreen, currentBlue, currentGamma); 
@@ -288,19 +236,27 @@ public class BetterToneMapAndColorCorrectionTest extends SimpleApplication  impl
          fpp.addFilter(betterToneMapFilter);
          fpp.addFilter(betterColorCorrectionFilter);
          viewPort.addProcessor(fpp);
+     }
         
-      }
+        
     
-  
-  /** Start the jMonkeyEngine application */
-  public static void main(String[] args) {
-       
-        BetterToneMapAndColorCorrectionTest app = new BetterToneMapAndColorCorrectionTest();
-         app.start();
-     
-  }
+    @Override
+    protected void initialize(Application app) {
+     }
 
     @Override
+    protected void cleanup(Application app) {
+     }
+
+    @Override
+    protected void onEnable() {
+     }
+
+    @Override
+    protected void onDisable() {
+     }
+
+     @Override
     public void onAction(String name, boolean isPressed, float tpf) {
        
         
@@ -528,4 +484,5 @@ void refreshDisplay()
      debugText2.setText("Cntr:"+currentContrast+" Brgh:"+currentBrightness+" Hue:"+currentHue+" Sat:"+currentSaturation+" Inv:"+currentInvert+" Gam:"+currentGamma2+" R:"+currentRed+" G:"+currentGreen+" B:"+currentBlue);
      
   }
+    
 }

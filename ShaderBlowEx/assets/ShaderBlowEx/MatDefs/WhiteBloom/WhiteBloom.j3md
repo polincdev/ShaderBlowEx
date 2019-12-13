@@ -1,0 +1,24 @@
+MaterialDef Bleach {
+
+    MaterialParameters {
+        Int NumSamples
+        Int NumSamplesDepth
+        Texture2D Texture
+        Float Strength;
+        Float Scale;
+      
+ 
+    }
+
+    Technique {
+        VertexShader  GLSL100:   ShaderBlowEx/MatDefs/WhiteBloom/WhiteBloom.vert
+        FragmentShader  GLSL100: ShaderBlowEx/MatDefs/WhiteBloom/WhiteBloom.frag
+        WorldParameters {
+          
+            Resolution
+        }
+
+       
+    }
+
+}

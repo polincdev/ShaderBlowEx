@@ -65,7 +65,7 @@ public class BetterDepthOfFieldFilterTest extends SimpleApplication  implements 
         //faster cam
         cam.setLocation(cam.getLocation().addLocal(0, 2f, 0));
         flyCam.setMoveSpeed(2.0f);
-        
+      
         //Test  image
         Material    geoMat = new Material(this.getAssetManager(),  "Common/MatDefs/Misc/Unshaded.j3md");
         geoMat.setTexture("ColorMap", assetManager.loadTexture("ShaderBlowEx/Textures/test.png")); 

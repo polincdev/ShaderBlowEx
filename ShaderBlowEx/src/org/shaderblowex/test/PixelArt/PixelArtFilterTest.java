@@ -33,9 +33,9 @@ public class PixelArtFilterTest extends SimpleApplication  implements ActionList
   BitmapText hintText;  
   BitmapText debugText; 
    
-  float currentEdgeWidth=2.0f;
-  float currentColorSize=15f;
-  float currentColorCount=43.0f;
+  float currentEdgeWidth=1.0f;
+  float currentColorSize=4f;
+  float currentColorCount=5.0f;
   float currentPixelResolution=250.0f;
   int currentpPaletteType=0;
   
@@ -57,10 +57,11 @@ public class PixelArtFilterTest extends SimpleApplication  implements ActionList
                                           PixelArtFilter.PALETTE_TYPE_FIRE,
                                           PixelArtFilter.PALETTE_TYPE_TECH,
                                           PixelArtFilter.PALETTE_TYPE_HUE,
-                                  
+                                            PixelArtFilter.PALETTE_TYPE_POSTERIZATION,
+                                            PixelArtFilter.PALETTE_TYPE_TOONIFICATION,
+
                                           };
   
-     
      
   String[] names= new  String[]{"Linear",
                                 "C64",
@@ -77,7 +78,9 @@ public class PixelArtFilterTest extends SimpleApplication  implements ActionList
                                 "Neon",
                                 "Fire",
                                 "Tech",
-                                "Hue" 
+                                "Hue",
+                                "Poster",
+                                "Toon" 
                                  
                                 };
  
@@ -97,7 +100,8 @@ public class PixelArtFilterTest extends SimpleApplication  implements ActionList
         //faster cam
         cam.setLocation(cam.getLocation().addLocal(0, 2f, 0));
         flyCam.setMoveSpeed(2.0f);
-        
+        //
+        viewPort.setBackgroundColor(ColorRGBA.Gray);
         //Test  image
         Material    geoMat = new Material(this.getAssetManager(),  "Common/MatDefs/Misc/Unshaded.j3md");
         geoMat.setTexture("ColorMap", assetManager.loadTexture("ShaderBlowEx/Textures/test.png")); 

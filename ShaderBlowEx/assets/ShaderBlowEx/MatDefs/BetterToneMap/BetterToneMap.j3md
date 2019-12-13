@@ -11,14 +11,13 @@ MaterialDef Default BetterToneMap {
     }
 
     Technique {
-        VertexShader GLSL100 GLSL150:   ShaderBlowEx/MatDefs/BetterToneMap/BetterToneMap.vert
-        FragmentShader GLSL100 GLSL150: ShaderBlowEx/MatDefs/BetterToneMap/BetterToneMap.frag
+        VertexShader GLSL100:   ShaderBlowEx/MatDefs/BetterToneMap/BetterToneMap.vert
+        FragmentShader GLSL100: ShaderBlowEx/MatDefs/BetterToneMap/BetterToneMap.frag
 
         WorldParameters {
         }
 
         Defines {
-            NUM_SAMPLES : NumSamples
             TONEMAP : ToneMapType
          
         }

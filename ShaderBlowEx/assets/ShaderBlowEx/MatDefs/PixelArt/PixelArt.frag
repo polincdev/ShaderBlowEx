@@ -41,15 +41,15 @@ vec4 fetchNormalDepth(vec2 tc){
 
 vec4 toonify(vec4 clr)
 {
-    for (float y = -m_ColorSize; y <= m_ColorSize; ++y)
+    for (float y = -m_ColorCount; y <= m_ColorCount; ++y)
                 {
-		for (float x = -m_ColorSize; x <= m_ColorSize; ++x)
+		for (float x = -m_ColorCount; x <= m_ColorCount; ++x)
                         {
 			clr += texture2D(m_Texture, (texCoord + vec2(x, y)/g_Resolution) );
                         }
                 }
 
-	clr /= float((2.0 * m_ColorSize + 1.0) * (2.0 * m_ColorSize + 1.0));
+	clr /= float((2.0 * m_ColorCount + 1.0) * (2.0 * m_ColorCount + 1.0));
 	for (int c = 0; c < 3; ++c)
             {
 		clr[c] = floor(m_ColorCount * clr[c]) / m_ColorCount;
@@ -57,7 +57,13 @@ vec4 toonify(vec4 clr)
     
       return clr;
     }
-  
+ vec3 posterize(vec3 c)
+    {
+     c = c * m_ColorCount;
+    c = floor(c);
+    c = c / m_ColorCount;
+    return c;
+    }
 
  #define RGB(r, g, b) vec3(float(r)/255., float(g)/255., float(b)/255.)
  #define NUM_COLORS 16
@@ -301,27 +307,31 @@ void main(){
           fillTechPalette();     
        #elif PALETTE==15
           fillHuePalette();     
-            
-           
-      #else 
-        fillPaletteLinear();
-     #endif
+      #endif
   
      // 
     vec4 clr = vec4(0.0);
+     vec2 uv2 = texCoord ;     
          
+  
       /////////////////Pixel
-    vec2 uv2 = texCoord ;
+   
     float aspectRatio = g_Resolution.x / g_Resolution.y;
      vec2 newRes = vec2(m_PixelResolution);
     newRes.x *= aspectRatio;
     vec3 pal = vec3(m_ColorSize ); //levels per color channel
     uv2 = floor( uv2 * newRes ) / newRes; //the actual magic. 
     //Palette
-    //Normal palette vs C4 pallete vs toon
+    //Normal palette vs C4 pallete vs toon vs posterization
     //vec4 color2 = texture2D( m_Texture, uv2 ); 
-      vec4 color2 =vec4(conformColor(texture2D( m_Texture, uv2 ).xyz), 1.0);
-   //  vec4 color2 =toonify(texture2D( m_Texture, uv2 ));
+      #if PALETTE==16  
+      vec4 color2=vec4(posterize(texture2D( m_Texture, uv2 ).xyz), 1.0);
+    #elif PALETTE==17
+      vec4 color2=toonify(texture2D( m_Texture, uv2 ));
+     #else
+     vec4 color2=vec4(conformColor(texture2D( m_Texture, uv2 ).xyz), 1.0);
+    #endif
+      //
      color2.xyz = floor( color2.xyz * pal  ) / pal.xyz;
      clr  = color2;
 	 
@@ -349,13 +359,13 @@ void main(){
  
  
       //SCANLINES
-        // distance  
-        float d = length(uv2 - vec2(0.5,0.5));
-	 // scanline
-	float scanline = sin(uv2.y* m_PixelResolution )*0.04;
-	gl_FragColor.rgb -= scanline;
-	 // vignette
-	gl_FragColor.rgb *= 1.0 - d * 0.5;
+    // distance  
+    float d = length(uv2 - vec2(0.5,0.5));
+     // scanline
+    float scanline = sin(uv2.y* m_PixelResolution )*0.04;
+    gl_FragColor.rgb -= scanline;
+     // vignette
+    gl_FragColor.rgb *= 1.0 - d * 0.5;
 	
         
 }

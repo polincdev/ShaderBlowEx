@@ -34,10 +34,12 @@ public class PixelArtFilter extends Filter {
    public static int  PALETTE_TYPE_FIRE=13;
    public static int  PALETTE_TYPE_TECH=14;
    public static int  PALETTE_TYPE_HUE=15;
+   public static int  PALETTE_TYPE_POSTERIZATION=16;
+   public static int  PALETTE_TYPE_TOONIFICATION=17;
     
     
     private Pass normalPass;
-    private float edgeWidth = 2.0f;
+    private float edgeWidth = 1.0f;
     private float edgeIntensity = 1.0f;
     private float normalThreshold = 0.5f;
     private float depthThreshold = 0.1f;
@@ -47,8 +49,8 @@ public class PixelArtFilter extends Filter {
     private RenderManager renderManager;
     private ViewPort viewPort;
     private  int paletteType=PALETTE_TYPE_LINEAR;
-    private float colorSize=15.0f;
-    private float colorCount=43.0f;
+    private float colorSize= 4.0f;
+    private float colorCount=5.0f;
     private float pixelResolution=250;
  
     

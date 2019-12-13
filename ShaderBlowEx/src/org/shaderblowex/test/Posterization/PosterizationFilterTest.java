@@ -49,6 +49,8 @@ public class PosterizationFilterTest extends SimpleApplication  implements Actio
         //No stats
         setDisplayStatView(false);
         setDisplayFps(false);
+        //Background color
+        viewPort.setBackgroundColor(ColorRGBA.Gray);
         //faster cam
         cam.setLocation(cam.getLocation().addLocal(0, 2f, 0));
         flyCam.setMoveSpeed(2.0f);
@@ -78,8 +80,8 @@ public class PosterizationFilterTest extends SimpleApplication  implements Actio
         sceneAsNode.addLight(al);
          
         //Keys
-        inputManager.addMapping("StrInc", new KeyTrigger(KeyInput.KEY_EQUALS));
-        inputManager.addMapping("StrDec", new KeyTrigger(KeyInput.KEY_MINUS));
+        inputManager.addMapping("StrInc", new KeyTrigger(KeyInput.KEY_2));
+        inputManager.addMapping("StrDec", new KeyTrigger(KeyInput.KEY_1));
         inputManager.addListener(this, new String[]{"StrInc"});
         inputManager.addListener(this, new String[]{"StrDec"});
          
@@ -89,7 +91,7 @@ public class PosterizationFilterTest extends SimpleApplication  implements Actio
 	hintText = new BitmapText(font);
 	hintText.setSize(font.getCharSet().getRenderedSize()*1.5f);
 	hintText.setColor(ColorRGBA.Red);
-	hintText.setText("Step:+/-");
+	hintText.setText("Step:1/2");
 	hintText.setLocalTranslation(0, this.getCamera().getHeight()-10, 1.0f);
 	hintText.updateGeometricState();
         guiNode.attachChild(hintText);

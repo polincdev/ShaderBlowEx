@@ -57,6 +57,8 @@ public class BetterVignetteFilterTest extends SimpleApplication  implements Acti
         //faster cam
         cam.setLocation(cam.getLocation().addLocal(0, 2f, 0));
         flyCam.setMoveSpeed(2.0f);
+          //Background color
+        viewPort.setBackgroundColor(ColorRGBA.Gray);
         //2D  reference image
         Geometry geometry= new Geometry("ToneMapFilterGeo",new Quad( this.getCamera().getWidth()/3  , this.getCamera().getHeight()/3  ));
         Material    geoMat = new Material(this.getAssetManager(),  "Common/MatDefs/Misc/Unshaded.j3md");

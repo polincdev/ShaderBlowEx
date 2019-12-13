@@ -62,7 +62,8 @@ public class BokehDoFFilterTest extends SimpleApplication  implements ActionList
         //faster cam
         cam.setLocation(cam.getLocation().addLocal(0, 2f, 0));
         flyCam.setMoveSpeed(2.0f);
-        
+        //Background color
+        viewPort.setBackgroundColor(ColorRGBA.Gray);
         //Test  image
         Material    geoMat = new Material(this.getAssetManager(),  "Common/MatDefs/Misc/Unshaded.j3md");
         geoMat.setTexture("ColorMap", assetManager.loadTexture("ShaderBlowEx/Textures/test.png")); 

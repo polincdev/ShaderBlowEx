@@ -79,8 +79,8 @@ public class WhiteBloomFilterTest extends SimpleApplication  implements ActionLi
         sceneAsNode.addLight(al);
          
         //Keys
-        inputManager.addMapping("StrInc", new KeyTrigger(KeyInput.KEY_EQUALS));
-        inputManager.addMapping("StrDec", new KeyTrigger(KeyInput.KEY_MINUS));
+        inputManager.addMapping("StrInc", new KeyTrigger(KeyInput.KEY_4));
+        inputManager.addMapping("StrDec", new KeyTrigger(KeyInput.KEY_3));
         inputManager.addMapping("SclInc", new KeyTrigger(KeyInput.KEY_2));
         inputManager.addMapping("SclDec", new KeyTrigger(KeyInput.KEY_1));
         inputManager.addListener(this, new String[]{"StrInc"});
@@ -94,7 +94,7 @@ public class WhiteBloomFilterTest extends SimpleApplication  implements ActionLi
 	hintText = new BitmapText(font);
 	hintText.setSize(font.getCharSet().getRenderedSize()*1.5f);
 	hintText.setColor(ColorRGBA.Red);
-	hintText.setText("Scale: 1/2 Strength:+/-");
+	hintText.setText("Scale: 1/2 Strength:3/4");
 	hintText.setLocalTranslation(0, this.getCamera().getHeight()-10, 1.0f);
 	hintText.updateGeometricState();
         guiNode.attachChild(hintText);

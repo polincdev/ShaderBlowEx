@@ -1,0 +1,23 @@
+MaterialDef Bleach {
+
+    MaterialParameters {
+        Int NumSamples
+        Int NumSamplesDepth
+        Texture2D Texture
+        Float Step;
+      
+ 
+    }
+
+    Technique {
+        VertexShader  GLSL100:   ShaderBlowEx/MatDefs/Posterization/Posterization.vert
+        FragmentShader  GLSL100: ShaderBlowEx/MatDefs/Posterization/Posterization.frag
+
+        WorldParameters {
+          
+        }
+
+       
+    }
+
+}

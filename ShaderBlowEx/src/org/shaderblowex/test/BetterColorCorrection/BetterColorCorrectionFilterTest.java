@@ -54,6 +54,8 @@ public class BetterColorCorrectionFilterTest extends SimpleApplication  implemen
         //No stats
         setDisplayStatView(false);
         setDisplayFps(false);
+        //Background color
+        viewPort.setBackgroundColor(ColorRGBA.Gray);
         //faster cam
         cam.setLocation(cam.getLocation().addLocal(0, 2f, 0));
         flyCam.setMoveSpeed(2.0f);
