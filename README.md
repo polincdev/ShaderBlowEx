@@ -3,6 +3,8 @@ Extended filters library for JMonkey Game Engine
 
 https://jmonkeyengine.org
 
+https://jmonkeystore.com
+
 # 1. BetterToneMap
 
 ## Usage: 
@@ -22,7 +24,7 @@ betterToneMapFilter.setExposure(1.1f);
 betterToneMapFilter.setGamma(2.2f);
 ```
 
-#### Info
+#### Info:
 
 https://en.wikipedia.org/wiki/Tone_mapping
 
@@ -36,7 +38,7 @@ https://github.com/cansik/processing-postfx
 
 #### Test:
 
-![ToneMapFilterTest](../master/img/BetterToneMapFilter.jpg)
+![BetterToneMapFilter](../master/img/BetterToneMapFilter.jpg)
 
 
 # 2. BetterColorCorrection
@@ -69,7 +71,7 @@ betterColorCorrectionFilter.setRed(currentRed);
 betterColorCorrectionFilter.setGreen(currentGreen);
 betterColorCorrectionFilter.setBlue(currentBlue);
 ```
-#### Info
+#### Info:
 
 https://en.wikipedia.org/wiki/Color_correction
 
@@ -85,7 +87,7 @@ https://hub.jmonkeyengine.org/t/i-made-a-post-filter-color-grading/31626
 
 #### Test:
 
-![ColorCorrectionFilterTest](../master/img/BetterColorCorrectionFilter.jpg)
+![BetterColorCorrectionFilter](../master/img/BetterColorCorrectionFilter.jpg)
 
 
 # 3. BetterDepthOfField
@@ -110,7 +112,7 @@ betterDepthOfFieldFilter.setfStop(currentFStop);
 betterDepthOfFieldFilter.setAutoFocus(currentAutoFocus);
 betterDepthOfFieldFilter.setShowFocus(currentShowFocus);
 ```
-#### Info 
+#### Info: 
 
 https://en.wikipedia.org/wiki/Depth_of_field
 
@@ -122,7 +124,7 @@ http://devlog-martinsh.blogspot.com/2011/12/glsl-depth-of-field-with-bokeh-v24.h
 
 #### Test:
 
-![ColorCorrectionFilterTest](../master/img/BetterDepthOfFieldFilter.jpg)
+![BetterDepthOfFieldFilter](../master/img/BetterDepthOfFieldFilter.jpg)
 
 # 4. BetterGroundFogFilter
 
@@ -168,7 +170,7 @@ https://hub.jmonkeyengine.org/t/bettergroundfogfilter/41452
 
 #### Test:
 
-![ColorCorrectionFilterTest](../master/img/BetterGroundFogFilter.jpg)
+![BetterGroundFogFilter](../master/img/BetterGroundFogFilter.jpg)
 
 
 # 5. BleachFilter
@@ -192,7 +194,7 @@ http://en.wikipedia.org/wiki/Bleach_bypass
 
 #### Test:
 
-![ColorCorrectionFilterTest](../master/img/BleachFilter.jpg)
+![BleachFilter](../master/img/BleachFilter.jpg)
 
 
 
@@ -217,7 +219,7 @@ bokehDoFFilter.setBlurSize(currentBlurSize);
 bokehDoFFilter.setFocusScale(currentFocusScale); 
 ```
 
-### Info 
+### Info: 
 
 https://en.wikipedia.org/wiki/Depth_of_field
 
@@ -231,7 +233,7 @@ https://github.com/TheRealMJP/BakingLab/blob/master/BakingLab/PostProcessing.hls
 
 #### Test:
 
-![ColorCorrectionFilterTest](../master/img/BokehDoFFilter.jpg)
+![BokehDoFFilter](../master/img/BokehDoFFilter.jpg)
 
 
 # 7. RadialHaloGlow
@@ -257,4 +259,173 @@ https://www.geeks3d.com/20140204/glsl-volumetric-light-post-processing-filter-fo
 
 #### Test:
 
-![ColorCorrectionFilterTest](../master/img/RadialHaloGlowFilter.jpg)
+![RadialHaloGlowFilter](../master/img/RadialHaloGlowFilter.jpg)
+
+
+# 8. BetterVignette
+
+## Usage: 
+```
+//Init
+float currentStrength=0.5f;
+float currentExtent=50.0f;
+float currentBlurSize=0.1f;
+float currentBlurQuality=20.0f;
+float grayPower=2.0f;
+float grayMargin=4.0f;
+//
+BetterVignetteFilter betterVignetteFilter=new BetterVignetteFilter( );
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(betterVignetteFilter);
+viewPort.addProcessor(fpp);
+//Modify
+betterVignetteFilter.setVignetteStrength(currentStrength);
+betterVignetteFilter.setVignetteExtent(currentExtent);
+betterVignetteFilter.setBlurSize(currentBlurSize);
+betterVignetteFilter.setBlurQuality(currentBlurQuality);
+betterVignetteFilter.setGrayPower(grayPower);
+betterVignetteFilter.setGrayMargin(grayMargin);
+        
+```
+#### Info:
+
+https://en.wikipedia.org/wiki/Vignetting
+
+
+#### Test:
+
+![BetterVignetteFilter](../master/img/BetterVignetteFilter.jpg)
+
+
+
+# 9. PixelArt
+
+## Usage: 
+```
+//Init
+float currentEdgeWidth=1.0f;
+float currentColorSize=4f;
+float currentColorCount=5.0f;
+float currentPixelResolution=250.0f;
+int currentpPaletteType=PixelArtFilter.PALETTE_TYPE_LINEAR;
+//
+PixelArtFilter  pixelArtFilter=new PixelArtFilter( );
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(pixelArtFilter);
+viewPort.addProcessor(fpp);
+//Modify
+pixelArtFilter.setPaletteType(currentpPaletteType);
+pixelArtFilter.setEdgeWidth(currentEdgeWidth);
+pixelArtFilter.setColorSize(currentColorSize);
+pixelArtFilter.setColorCount(currentColorCount);
+pixelArtFilter.setPixelResolution(currentPixelResolution);
+ 
+        
+```
+#### Info:
+
+https://en.wikipedia.org/wiki/Pixel_art
+
+#### Credits:
+
+https://github.com/cansik/processing-postfx
+
+https://www.shadertoy.com/view/XsjSzR
+
+http://unusedino.de/ec64/technical/misc/vic656x/colors/
+
+#### Test:
+
+![PixeArtFilter](../master/img/PixeArtFilter.jpg)
+
+
+
+
+# 10. Posterization
+
+## Usage: 
+```
+//Init
+float currentStep=10.0f;
+//
+PosterizationFilter posterizationFilter=new PosterizationFilter(currentStep);
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(posterizationFilter);
+viewPort.addProcessor(fpp);
+//Modify
+posterizationFilter.setStep(currentStep);
+ 
+        
+```
+#### Info:
+
+https://en.wikipedia.org/wiki/Posterization
+
+#### Credits:
+
+https://rosenzweig.io/blog/monotone-portraits-with-glsl.html
+
+https://www.geeks3d.com/20091027/shader-library-posterization-post-processing-effect-glsl/
+
+#### Test:
+
+![PosterizationFilter](../master/img/PosterizationFilter.jpg)
+
+
+
+
+# 11. SimpleBloom
+
+## Usage: 
+```
+//Init
+float currentStrength=0.5f;
+float currentSize=3.0f;
+int currentSamples=15;
+//
+SimpleBloomFilter simpleBloomFilter=new SimpleBloomFilter( currentStrength,currentSize,currentSamples);
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(simpleBloomFilter);
+viewPort.addProcessor(fpp);
+//Modify
+simpleBloomFilter.setStrength(currentStrength);
+simpleBloomFilter.setSize(currentSize);
+simpleBloomFilter.setSamples(currentSamples); 
+```
+
+#### Credits:
+
+http://rastergrid.com/blog/2010/09/efficient-gaussian-blur-with-linear-sampling/
+
+https://github.com/kiwipxl/GLSL-shaders
+
+#### Test:
+
+![SimpleBloomFilter](../master/img/SimpleBloomFilter.jpg)
+
+
+
+
+# 11. WhiteBloom
+
+## Usage: 
+```
+//Init
+float currentStrength=1.0f;
+float currentScale=256f;
+//
+whiteBloomFilter=new WhiteBloomFilter(currentStrength);
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(whiteBloomFilter);
+viewPort.addProcessor(fpp);
+//Modify
+whiteBloomFilter.setStrength(currentStrength);
+whiteBloomFilter.setScale(currentScale);
+```
+ 
+
+#### Test:
+
+![WhiteBloomFilter](../master/img/WhiteBloomFilter.jpg)
+
+
