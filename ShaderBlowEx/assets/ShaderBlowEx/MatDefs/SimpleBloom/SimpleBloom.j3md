@@ -22,8 +22,7 @@ MaterialDef SimpleBloom {
 
         Defines {
             BLOOM : BloomType
-           
-        }
+         }
     }
 
 }

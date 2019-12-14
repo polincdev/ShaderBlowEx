@@ -1,4 +1,4 @@
-MaterialDef Bleach {
+MaterialDef Posterization {
 
     MaterialParameters {
         Int NumSamples

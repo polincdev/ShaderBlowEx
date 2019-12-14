@@ -1,4 +1,3 @@
-
 MaterialDef BetterDepthOfField {
     MaterialParameters {
         Texture2D Texture

@@ -1,4 +1,4 @@
-MaterialDef Focus {
+MaterialDef BokehDoF {
 
     MaterialParameters {
         Int NumSamples

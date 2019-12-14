@@ -1,4 +1,4 @@
-MaterialDef color sat shader {
+MaterialDef BetterColorCorrection {
 
     MaterialParameters {
         Int NumSamples

@@ -1,4 +1,4 @@
-MaterialDef Bleach {
+MaterialDef WhiteBloom {
 
     MaterialParameters {
         Int NumSamples

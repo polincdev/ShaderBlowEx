@@ -1,4 +1,4 @@
-MaterialDef Cartoon Edge {
+MaterialDef PixelArt {
 
     MaterialParameters {
         Int NumSamples

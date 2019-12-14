@@ -16,11 +16,7 @@ MaterialDef Bleach {
         WorldParameters {
           
         }
-
-        Defines {
-              NUM_SAMPLES : NumSamples
-           
-        }
+ 
     }
 
 }

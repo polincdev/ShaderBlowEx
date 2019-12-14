@@ -1,4 +1,4 @@
-MaterialDef ColorScale {
+MaterialDef BetterVignette {
   
     MaterialParameters {
         Int NumSamples

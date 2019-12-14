@@ -1,4 +1,4 @@
-MaterialDef LensFlare {
+MaterialDef RadialHaloGlow {
 
 MaterialParameters {
     Int NumSamples;
