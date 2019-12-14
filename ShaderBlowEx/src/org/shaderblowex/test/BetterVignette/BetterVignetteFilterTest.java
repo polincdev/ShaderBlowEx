@@ -36,7 +36,6 @@ public class BetterVignetteFilterTest extends SimpleApplication  implements Acti
   
   float currentStrength=0.5f;
   float currentExtent=50.0f;
-  
   float currentBlurSize=0.1f;
   float currentBlurQuality=20.0f;
   float grayPower=2.0f;
@@ -256,9 +255,9 @@ public class BetterVignetteFilterTest extends SimpleApplication  implements Acti
                grayMargin=10.0f;
            refreshDisplay();
 	    //
-           betterVignetteFilter.setGrayMargin(grayMargin);
+          
         }
-        else  if(name.equals("GrMarDec"))
+        else  if(name.equals("GrMarDec")) betterVignetteFilter.setGrayMargin(grayMargin);
         {
            grayMargin-=0.1f;   
            if(grayMargin<0)

@@ -1,5 +1,6 @@
-uniform float g_Time;
+ #import "Common/ShaderLib/GLSLCompat.glsllib"
 
+ uniform float g_Time;
 uniform sampler2D m_Texture;
  
 uniform float m_InnerVignetting;
