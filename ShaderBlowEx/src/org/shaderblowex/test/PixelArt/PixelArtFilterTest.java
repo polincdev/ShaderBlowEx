@@ -17,7 +17,6 @@ import com.jme3.post.FilterPostProcessor;
  
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
-import org.shaderblowex.filter.BetterToneMap.BetterToneMapFilter;
  
 import org.shaderblowex.filter.PixelArt.PixelArtFilter;
  

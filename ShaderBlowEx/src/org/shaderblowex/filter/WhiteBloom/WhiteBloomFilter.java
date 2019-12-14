@@ -6,16 +6,12 @@ package org.shaderblowex.filter.WhiteBloom;
  * @author xxx
  */
  
-
-import org.shaderblowex.filter.Bleach.*;
-import org.shaderblowex.filter.BetterToneMap.*;
 import com.jme3.asset.AssetManager;
 import com.jme3.export.InputCapsule;
 import com.jme3.export.JmeExporter;
 import com.jme3.export.JmeImporter;
 import com.jme3.export.OutputCapsule;
 import com.jme3.material.Material;
-import com.jme3.math.Vector3f;
 import com.jme3.post.Filter;
 import com.jme3.renderer.RenderManager;
 import com.jme3.renderer.ViewPort;

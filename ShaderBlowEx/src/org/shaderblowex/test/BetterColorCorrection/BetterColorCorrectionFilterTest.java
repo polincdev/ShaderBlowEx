@@ -19,7 +19,7 @@ import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Quad;
 import org.shaderblowex.filter.BetterColorCorrection.BetterColorCorrectionFilter;
-import org.shaderblowex.filter.BetterToneMap.BetterToneMapFilter;
+ 
 
 /**
  *

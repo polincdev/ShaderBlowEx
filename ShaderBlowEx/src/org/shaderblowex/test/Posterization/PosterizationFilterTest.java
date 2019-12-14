@@ -18,7 +18,6 @@ import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Quad;
-import org.shaderblowex.filter.Bleach.BleachFilter;
 import org.shaderblowex.filter.Posterization.PosterizationFilter;
  
  

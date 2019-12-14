@@ -2,7 +2,6 @@
 package org.shaderblowex.test.SimpleBloom;
 
  
-import org.shaderblowex.test.BetterToneMap.*;
 import com.jme3.app.SimpleApplication;
 import com.jme3.font.BitmapFont;
 import com.jme3.font.BitmapText;
@@ -13,22 +12,10 @@ import com.jme3.light.AmbientLight;
 import com.jme3.light.DirectionalLight;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
-import com.jme3.math.FastMath;
 import com.jme3.math.Vector3f;
 import com.jme3.post.FilterPostProcessor;
-import com.jme3.renderer.queue.RenderQueue;
-import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
-import com.jme3.scene.shape.Box;
-import com.jme3.scene.shape.Quad;
-import com.jme3.shadow.DirectionalLightShadowFilter;
-import com.jme3.shadow.DirectionalLightShadowRenderer;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.shaderblowex.filter.BetterToneMap.BetterToneMapFilter;
 import org.shaderblowex.filter.SimpleBloom.SimpleBloomFilter;
 
 /**
@@ -45,10 +32,7 @@ public class SimpleBloomFilterTest extends SimpleApplication  implements ActionL
   float currentStrength=0.5f;
   float currentSize=3.0f;
   int currentSamples=15;
-  
    
-   
-  
  public   SimpleBloomFilterTest()
     {
         
