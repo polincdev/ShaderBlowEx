@@ -454,4 +454,30 @@ https://en.wikipedia.org/wiki/Spatial_anti-aliasing
 
 ![DLAAFilter](../master/img/DLAAFilter.jpg)
 
+# 14. NFAA
 
+## Usage: 
+```
+//Init
+NFAAFilter nFAAFilter=new NFAAFilter();
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(nFAAFilter);
+viewPort.addProcessor(fpp);
+```
+
+#### Info:
+
+https://en.wikipedia.org/wiki/Spatial_anti-aliasing
+
+#### Credits:
+
+ https://github.com/manuelbua/libgdx-contribs
+ 
+ http://blenderartists.org/forum/showthread.php?209574-Full-Screen-Anti-Aliasing-(NFAA-DLAA-SSAA)
+ 
+ http://www.gamedev.net/topic/580517-nfaa---a-post-process-anti-aliasing-filter-results-implementation-details/
+ 
+ 
+#### Test:
+
+![NFAAFilter](../master/img/NFAAFilter.jpg)
