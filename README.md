@@ -481,3 +481,28 @@ https://en.wikipedia.org/wiki/Spatial_anti-aliasing
 #### Test:
 
 ![NFAAFilter](../master/img/NFAAFilter.jpg)
+
+
+# 15. Air
+
+## Usage: 
+```
+//Init
+float currentAirDensity = 0.4f;
+float currentAirDistance = 10;
+float currentAirDesaturation = 1f;
+//
+AirFilter airFilter=new AirFilter( );
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(airFilter);
+viewPort.addProcessor(fpp);
+//
+airFilter.setAirDensity(currentAirDensity);
+airFilter.setAirDistance(currentAirDistance);
+airFilter.setAirDesaturation(currentAirDesaturation);
+```
+  
+#### Test:
+
+![AirFilter](../master/img/AirFilter.jpg)
+
