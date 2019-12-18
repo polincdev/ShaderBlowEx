@@ -49,18 +49,16 @@ public class TVFilterTest extends SimpleApplication  implements ActionListener {
         
         //No stats
         setDisplayStatView(false);
-        setDisplayFps(false);
+        setDisplayFps(true);
         //Background color
         viewPort.setBackgroundColor(ColorRGBA.Gray);
         //faster cam
         cam.setLocation(cam.getLocation().addLocal(0, 2f, 0));
         flyCam.setMoveSpeed(2.0f);
         //2D  reference image
-        Geometry geometry= new Geometry("ToneMapFilterGeo",new Quad( this.getCamera().getWidth()/3  , this.getCamera().getHeight()/3  ));
-        Material    geoMat = new Material(this.getAssetManager(),  "Common/MatDefs/Misc/Unshaded.j3md");
+         Material    geoMat = new Material(this.getAssetManager(),  "Common/MatDefs/Misc/Unshaded.j3md");
         geoMat.setTexture("ColorMap", assetManager.loadTexture("ShaderBlowEx/Textures/test.png")); 
-        geometry.setMaterial(geoMat);
-        guiNode.attachChild(geometry);
+       
         
         
          //Scene
