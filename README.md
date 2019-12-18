@@ -506,3 +506,29 @@ airFilter.setAirDesaturation(currentAirDesaturation);
 
 ![AirFilter](../master/img/AirFilter.jpg)
 
+
+# 16. TV
+
+## Usage: 
+```
+//Init
+boolean currentVhs=true;
+boolean currentLine=true;
+boolean currentGrain=true;
+boolean currentScanline=true;
+boolean currentVignette=true;    
+//
+TVFilter tVFilter=new TVFilter(currentVhs, currentLine,currentGrain, currentScanline,currentVignette ); 
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(tVFilter);
+viewPort.addProcessor(fpp);
+//
+tVFilter.setVhs(currentVhs);
+tVFilter.setLine(currentLine);
+tVFilter.setGrain(currentGrain);
+```
+  
+#### Test:
+
+![TVFilter](../master/img/TVFilter.jpg)
+
