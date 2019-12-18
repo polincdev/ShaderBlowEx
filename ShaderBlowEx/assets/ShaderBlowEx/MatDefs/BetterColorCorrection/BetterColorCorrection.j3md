@@ -16,8 +16,8 @@ MaterialDef BetterColorCorrection {
      }
 
     Technique {
-        VertexShader GLSL100 GLSL150:   ShaderBlowEx/MatDefs/BetterColorCorrection/BetterColorCorrection.vert
-        FragmentShader GLSL100 GLSL150: ShaderBlowEx/MatDefs/BetterColorCorrection/BetterColorCorrection.frag
+        VertexShader GLSL100:   ShaderBlowEx/MatDefs/BetterColorCorrection/BetterColorCorrection.vert
+        FragmentShader GLSL100 : ShaderBlowEx/MatDefs/BetterColorCorrection/BetterColorCorrection.frag
 
         WorldParameters {
             WorldViewProjectionMatrix
