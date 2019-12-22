@@ -532,3 +532,34 @@ tVFilter.setGrain(currentGrain);
 
 ![TVFilter](../master/img/TVFilter.jpg)
 
+
+
+# 17. MipmapBloom
+
+## Usage: 
+```
+//Init
+boolean currentVhs=true;
+boolean currentLine=true;
+boolean currentGrain=true;
+boolean currentScanline=true;
+boolean currentVignette=true;    
+//
+TVFilter tVFilter=new TVFilter(currentVhs, currentLine,currentGrain, currentScanline,currentVignette ); 
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(tVFilter);
+viewPort.addProcessor(fpp);
+//
+tVFilter.setVhs(currentVhs);
+tVFilter.setLine(currentLine);
+tVFilter.setGrain(currentGrain);
+```
+#### Credits:
+
+https://hub.jmonkeyengine.org/t/mipmapbloomfilter-on-github/36360
+  
+#### Test:
+
+![MipmapBloomFilter](../master/img/MipmapBloomFilter.jpg)
+
+
