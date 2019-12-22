@@ -539,20 +539,21 @@ tVFilter.setGrain(currentGrain);
 ## Usage: 
 ```
 //Init
-boolean currentVhs=true;
-boolean currentLine=true;
-boolean currentGrain=true;
-boolean currentScanline=true;
-boolean currentVignette=true;    
+float currentExposurePower=5.0f;
+float currentExposureCutOff=0.0f;
+float currentBloomFactor=1.5f;
+float currentBloomPower=0.5f;
+float currentDownSamplingCoef=2.0f; 
 //
-TVFilter tVFilter=new TVFilter(currentVhs, currentLine,currentGrain, currentScanline,currentVignette ); 
+MipmapBloomFilter mipmapBloomFilter=new MipmapBloomFilter(  );
 FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
-fpp.addFilter(tVFilter);
+fpp.addFilter(mipmapBloomFilter);
 viewPort.addProcessor(fpp);
-//
-tVFilter.setVhs(currentVhs);
-tVFilter.setLine(currentLine);
-tVFilter.setGrain(currentGrain);
+//Modify
+mipmapBloomFilter.setExposurePower(currentExposurePower);
+mipmapBloomFilter.setExposureCutOff(currentExposureCutOff);
+mipmapBloomFilter.setBloomIntensity(currentBloomFactor,currentBloomPower );
+mipmapBloomFilter.setDownSamplingCoef(currentDownSamplingCoef);
 ```
 #### Credits:
 
