@@ -532,3 +532,35 @@ tVFilter.setGrain(currentGrain);
 
 ![TVFilter](../master/img/TVFilter.jpg)
 
+
+
+# 17. MipmapBloom
+
+## Usage: 
+```
+//Init
+float currentExposurePower=5.0f;
+float currentExposureCutOff=0.0f;
+float currentBloomFactor=1.5f;
+float currentBloomPower=0.5f;
+float currentDownSamplingCoef=2.0f; 
+//
+MipmapBloomFilter mipmapBloomFilter=new MipmapBloomFilter(  );
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(mipmapBloomFilter);
+viewPort.addProcessor(fpp);
+//Modify
+mipmapBloomFilter.setExposurePower(currentExposurePower);
+mipmapBloomFilter.setExposureCutOff(currentExposureCutOff);
+mipmapBloomFilter.setBloomIntensity(currentBloomFactor,currentBloomPower );
+mipmapBloomFilter.setDownSamplingCoef(currentDownSamplingCoef);
+```
+#### Credits:
+
+https://hub.jmonkeyengine.org/t/mipmapbloomfilter-on-github/36360
+  
+#### Test:
+
+![MipmapBloomFilter](../master/img/MipmapBloomFilter.jpg)
+
+
