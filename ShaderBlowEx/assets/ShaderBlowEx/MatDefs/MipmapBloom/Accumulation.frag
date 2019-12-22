@@ -1,3 +1,5 @@
+#import "Common/ShaderLib/GLSLCompat.glsllib"
+
 uniform sampler2D m_Texture;  // The scene texture.
 uniform sampler2D m_Texture1;
 uniform sampler2D m_Texture2;

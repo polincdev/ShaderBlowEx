@@ -1,3 +1,5 @@
+#import "Common/ShaderLib/GLSLCompat.glsllib"
+
 uniform sampler2D m_Texture;  // The texture to be blurred.
 uniform float m_Size;         // The height of the texture.
 uniform float m_Scale;        // The step size in pixels.
