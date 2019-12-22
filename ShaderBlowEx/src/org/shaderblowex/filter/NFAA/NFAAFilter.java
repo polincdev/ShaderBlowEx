@@ -57,7 +57,7 @@ public class NFAAFilter extends Filter {
     public void read(JmeImporter im) throws IOException {
         super.read(im);
         InputCapsule ic = im.getCapsule(this);
-         
+          
         
     }
  

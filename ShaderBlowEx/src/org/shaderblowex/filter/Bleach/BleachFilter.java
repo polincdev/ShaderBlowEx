@@ -65,7 +65,7 @@ public class BleachFilter extends Filter {
         if (material != null) {
             material.setFloat("Strength", strength);
         }
-        this.strength = strength;
+        this.strength = strength;  
     }
     
     /**
