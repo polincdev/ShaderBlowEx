@@ -3,7 +3,7 @@ Extended filters library for JMonkey Game Engine
 
 https://jmonkeyengine.org
 
-![https://jmonkeystore.com](https://jmonkeystore.com/471f0c67-7911-48c4-84e8-d1f523555400)
+https://jmonkeystore.com/471f0c67-7911-48c4-84e8-d1f523555400
 
  
 # 1. BetterToneMap
