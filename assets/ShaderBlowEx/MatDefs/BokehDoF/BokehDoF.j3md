@@ -1,0 +1,34 @@
+MaterialDef BokehDoF {
+
+    MaterialParameters {
+        Int NumSamples
+        Int NumSamplesDepth
+        Texture2D Texture
+        Texture2D DepthTexture
+        Float BlurSize;
+        Float FocusPoint;
+        Float RadiusScale;
+        Float FocusScale;
+        Float XScale;
+        Float YScale;
+      
+ 
+    }
+
+    Technique {
+        VertexShader  GLSL100:   ShaderBlowEx/MatDefs/BokehDoF/BokehDoF.vert
+        FragmentShader  GLSL100: ShaderBlowEx/MatDefs/BokehDoF/BokehDoF.frag
+
+        WorldParameters {
+            FrustumNearFar
+        }
+
+        Defines {
+             RESOLVE_MS : NumSamples
+            RESOLVE_DEPTH_MS : NumSamplesDepth
+           
+           
+        }
+    }
+
+}

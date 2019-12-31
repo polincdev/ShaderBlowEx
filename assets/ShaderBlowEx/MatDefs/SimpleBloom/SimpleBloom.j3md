@@ -1,0 +1,28 @@
+MaterialDef SimpleBloom {
+
+    MaterialParameters {
+        Int NumSamples
+        Int NumSamplesDepth
+        Texture2D Texture
+        Float BloomType;
+        Float Strength;
+        Float Size;
+        Int Samples;
+      
+ 
+    }
+
+    Technique {
+        VertexShader  GLSL100:   ShaderBlowEx/MatDefs/SimpleBloom/SimpleBloom.vert
+        FragmentShader  GLSL100: ShaderBlowEx/MatDefs/SimpleBloom/SimpleBloom.frag
+
+        WorldParameters {
+          Resolution
+        }
+
+        Defines {
+            BLOOM : BloomType
+         }
+    }
+
+}

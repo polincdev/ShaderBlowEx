@@ -1,0 +1,23 @@
+MaterialDef DLAA {
+
+    MaterialParameters {
+        Int NumSamples
+        Int NumSamplesDepth
+        Texture2D Texture
+        
+      
+ 
+    }
+
+    Technique {
+        VertexShader  GLSL100:   ShaderBlowEx/MatDefs/DLAA/DLAA.vert
+        FragmentShader  GLSL100: ShaderBlowEx/MatDefs/DLAA/DLAA.frag
+
+       WorldParameters {
+             Resolution
+        }
+
+      
+    }
+
+}

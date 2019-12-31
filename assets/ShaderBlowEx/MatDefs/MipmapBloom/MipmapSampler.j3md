@@ -1,0 +1,36 @@
+MaterialDef PreHdr {
+
+    MaterialParameters {
+	Int NumSamples
+	Int NumSamplesDepth
+        Texture2D Texture
+        Float Dx
+        Float Dy
+    }
+
+    Technique {
+        VertexShader GLSL100: ShaderBlowEx/MatDefs/MipmapBloom/MipmapBloom.vert 
+        FragmentShader GLSL100:  ShaderBlowEx/MatDefs/MipmapBloom/MipmapSampler.frag
+
+        WorldParameters {
+            WorldViewProjectionMatrix
+        }
+
+        Defines {
+            RESOLVE_MS : NumSamples
+            RESOLVE_DEPTH_MS : NumSamplesDepth
+            MULTISAMPLE : Dx
+        }
+    }
+
+    Technique {
+        VertexShader GLSL100:   Common/MatDefs/Post/Post.vert
+        FragmentShader GLSL100: MatDefs/MipmapBloom/MipmapSampler.frag
+
+        WorldParameters {
+            WorldViewProjectionMatrix
+        }
+    }
+
+
+}

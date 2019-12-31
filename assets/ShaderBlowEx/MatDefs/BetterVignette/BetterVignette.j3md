@@ -1,0 +1,27 @@
+MaterialDef BetterVignette {
+  
+    MaterialParameters {
+        Int NumSamples
+        Texture2D Texture
+       
+        Float VignetteStrength
+        Float VignetteExtent
+        Float BlurQuality 
+        Float BlurSize 
+        Float GrayPower 
+        Float GrayMargin 
+    }
+  
+    Technique {
+        VertexShader GLSL100:   ShaderBlowEx/MatDefs/BetterVignette/BetterVignette.vert
+        FragmentShader GLSL100: ShaderBlowEx/MatDefs/BetterVignette/BetterVignette.frag
+  
+        WorldParameters {
+            WorldViewProjectionMatrix
+            Time
+        }
+ 
+       
+    }
+   
+}
