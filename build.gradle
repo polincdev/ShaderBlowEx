@@ -4,7 +4,7 @@ apply plugin: 'java'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-group 'com.shaderblowex'
+group 'org.shaderblowex'
 version '1.0'
 
 repositories {
