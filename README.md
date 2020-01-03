@@ -565,3 +565,44 @@ https://hub.jmonkeyengine.org/t/mipmapbloomfilter-on-github/36360
 ![MipmapBloomFilter](../master/img/MipmapBloomFilter.jpg)
 
 
+
+# 18. SimpleSSR
+
+## Usage: 
+```
+//Init
+float currentDownSample=2f;
+float currentStepLength=0.5f;
+int currentRayStepLength=32;
+float currentSigma= 5f;
+float currentReflectionFactor=0.5f;
+//
+SimpleSSRFilter simpleSSRFilter=new SimpleSSRFilter();
+simpleSSRFilter.setDownSampleFactor(currentDownSample);
+simpleSSRFilter.setApproximateNormals(false);
+simpleSSRFilter.setFastBlur(true);
+simpleSSRFilter.setStepLength(currentStepLength);
+simpleSSRFilter.setRaySteps(currentRayStepLength);
+simpleSSRFilter.setSigma(currentSigma);
+simpleSSRFilter.setSampleNearby(false);
+simpleSSRFilter.setReflectionFactor(currentReflectionFactor);
+
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(simpleSSRFilter);
+viewPort.addProcessor(fpp);
+//Modigy
+simpleSSRFilter.setStepLength(currentStepLength);
+
+```
+
+#### Credits:
+
+https://github.com/riccardobl/SimpleSSRShader
+
+https://hub.jmonkeyengine.org/t/shader-screen-space-reflections-for-jme/41366/3
+
+https://github.com/jMonkeyEngine/jmonkeyengine/pull/1144
+  
+#### Test:
+
+![SimpleSSRFilter](../master/img/SimpleSSRFilter.jpg)
