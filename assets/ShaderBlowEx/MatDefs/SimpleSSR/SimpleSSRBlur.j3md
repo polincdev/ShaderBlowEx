@@ -1,0 +1,41 @@
+MaterialDef SSRMerger {
+
+    MaterialParameters {
+        Texture2D DepthTexture
+        Texture2D Texture
+        Texture2D SSR
+        Boolean Horizontal
+        Boolean Vertical
+        Boolean FastBlur : False  
+        Float BlurScale: 1.0
+        Float Sigma: 5.0
+        Int KernelSize : 5
+
+        Int NumSamples
+
+    }
+
+    Technique {
+          VertexShader GLSL130:   ShaderBlowEx/MatDefs/SimpleSSR/SimpleSSR.vert
+        FragmentShader GLSL130:  ShaderBlowEx/MatDefs/SimpleSSR/SimpleSSRBlur.frag
+
+
+        WorldParameters {
+            Resolution
+            ResolutionInverse
+        }
+
+        Defines {
+            FINAL:Texture
+            HORIZONTAL : Horizontal
+            VERTICAL : Vertical
+            USE_FAST_BLUR : FastBlur
+            BLUR_SCALE : BlurScale
+            SIGMA : Sigma
+            KERNEL_SIZE : KernelSize
+        }
+
+    }
+
+
+}
