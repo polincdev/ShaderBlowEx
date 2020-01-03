@@ -590,10 +590,14 @@ simpleSSRFilter.setReflectionFactor(currentReflectionFactor);
 FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
 fpp.addFilter(simpleSSRFilter);
 viewPort.addProcessor(fpp);
-//Modigy
+//Modify
 simpleSSRFilter.setStepLength(currentStepLength);
 
 ```
+
+#### Info
+
+https://jove.fandom.com/wiki/Screen_Space_Reflection_(SSR)
 
 #### Credits:
 
