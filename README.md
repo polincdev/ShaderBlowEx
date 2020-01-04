@@ -610,3 +610,28 @@ https://github.com/jMonkeyEngine/jmonkeyengine/pull/1144
 #### Test:
 
 ![SimpleSSRFilter](../master/img/SimpleSSRFilter.jpg)
+
+
+
+# 19. OilPaint
+
+## Usage: 
+```
+//Init
+int currentStrength=5;
+//
+OilPaintFilter oilPaintFilter=new OilPaintFilter();
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(oilPaintFilter);
+viewPort.addProcessor(fpp);
+//Modify
+oilPaintFilter.setStrength(currentStrength);
+```
+#### Credits:
+
+https://www.reddit.com/r/shaders/comments/5e7026/help_making_an_oil_paint_post_processing_shader/
+  
+#### Test:
+
+![OilPaintFilter](../master/img/OilPaintFilter.jpg)
+
