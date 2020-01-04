@@ -1,0 +1,23 @@
+MaterialDef OilPaint {
+
+    MaterialParameters {
+        Int NumSamples
+        Int NumSamplesDepth
+        Texture2D Texture
+        Int Strength;
+      
+ 
+    }
+
+    Technique {
+        VertexShader  GLSL100:   ShaderBlowEx/MatDefs/OilPaint/OilPaint.vert
+        FragmentShader  GLSL100: ShaderBlowEx/MatDefs/OilPaint/OilPaint.frag
+
+       WorldParameters {
+             Resolution
+        }
+
+      
+    }
+
+}

@@ -1,4 +1,4 @@
-package org.shaderblowex.filter.MipMapBloomFIlter;
+package org.shaderblowex.filter.MipMapBloom;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

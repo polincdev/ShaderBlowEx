@@ -34,7 +34,7 @@ public class DLAAFilter extends Filter {
 
     @Override
     protected void initFilter(AssetManager manager, RenderManager renderManager, ViewPort vp, int w, int h) {
-        material = new Material(manager, "ShaderBlowEx/MatDefs/NFAA/NFAA.j3md");
+        material = new Material(manager, "ShaderBlowEx/MatDefs/DLAA/DLAA.j3md");
         
    
     }

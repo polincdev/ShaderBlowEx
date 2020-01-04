@@ -1,11 +1,12 @@
  
-package org.shaderblowex.filter.Bleach;
+package org.shaderblowex.filter.OilPaint;
 
 /**
  *
  * @author xxx
  */
  
+
 import com.jme3.asset.AssetManager;
 import com.jme3.export.InputCapsule;
 import com.jme3.export.JmeExporter;
@@ -18,21 +19,27 @@ import com.jme3.renderer.ViewPort;
 import java.io.IOException;
 
  
-public class BleachFilter extends Filter {
+public class OilPaintFilter extends Filter {
  
-    private static final float DEFAULT_STRENGTH=0.1f;  
+    private static final int DEFAULT_STRENGTH=5;  
             
-     private float strength=DEFAULT_STRENGTH;
-     
+     private int strength=DEFAULT_STRENGTH;
     /**
-     * Creates a bleach filter with the specified strength. 
-     * Bleach - washed out, desaturated look from Saving Private Ryan or Minority Report
-      * @param strength Strength. Default 0.1. Max 5.0. Min 0.0
+     * Creates a OilpaintFilter . 
+      
      */
-    public BleachFilter(  float strength) {
-      super("BleachMapFilter");
+    public OilPaintFilter(  ) {
+      super("OilPaintFilter");
+   
+    }
+      /**
+     * Creates a oil paint filter with the specified strength. 
+       * @param strength Strength. Default 5. Max 25 . Min 1.0
+     */
+    public OilPaintFilter(  int strength) {
+      super("OilPaintFilter");
      // 
-      checkFloatArgument(strength, 0f, 5f, "Strength");
+       checkIntArgument(strength, 1, 25, "Strength");
      //
      this.strength=strength;
         
@@ -41,8 +48,8 @@ public class BleachFilter extends Filter {
 
     @Override
     protected void initFilter(AssetManager manager, RenderManager renderManager, ViewPort vp, int w, int h) {
-        material = new Material(manager, "ShaderBlowEx/MatDefs/Bleach/Bleach.j3md");
-        material.setFloat("Strength", strength);
+        material = new Material(manager, "ShaderBlowEx/MatDefs/OilPaint/OilPaint.j3md");
+          material.setInt("Strength", strength);
    
     }
 
@@ -51,19 +58,19 @@ public class BleachFilter extends Filter {
         return material;
     }
 
-    
+   
     
     /**
      * Set the stregth of the effect.
      * 
      * @param The strength of the effect. 
      */
-    public void setStrength(float strength) {
+    public void setStrength(int strength) {
         
-        checkFloatArgument(strength, 0, 5f, "Strength");
+        checkIntArgument(strength, 1, 25, "Strength");
         
         if (material != null) {
-            material.setFloat("Strength", strength);
+            material.setInt("Strength", strength);
         }
         this.strength = strength;  
     }
@@ -88,14 +95,15 @@ public class BleachFilter extends Filter {
     public void read(JmeImporter im) throws IOException {
         super.read(im);
         InputCapsule ic = im.getCapsule(this);
-        strength = (Float) ic.readFloat("strength", DEFAULT_STRENGTH );
+        strength = (Integer) ic.readInt("strength", DEFAULT_STRENGTH );
         
         
     }
-private   void checkFloatArgument(float value, float min, float max, String name) {
+private   void checkIntArgument(int value, int min, int max, String name) {
 if (value < min || value > max) {
 throw new IllegalArgumentException(name + " was " + value + " but should be between " + min + " and " + max);
 }
 }
+ 
  
 }
