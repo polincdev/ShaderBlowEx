@@ -15,10 +15,10 @@ import java.io.IOException;
 public class TVFilter extends Filter {
     
       private boolean vhs=true;
-       private boolean line=true;
-       private boolean grain=true;
-       private boolean scanline=true;
-        private boolean vignette=true;
+      private boolean line=true;
+      private boolean grain=true;
+      private boolean scanline=true;
+      private boolean vignette=true;
 
      
     
@@ -39,7 +39,7 @@ public class TVFilter extends Filter {
      */
      public TVFilter(  boolean vhs,boolean line,boolean grain,boolean scanline,boolean vignette) 
        {
-        super("TVFilter");
+        this();
          //
         this.vhs = vhs;
         this.line = line;

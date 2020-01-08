@@ -55,10 +55,10 @@ public class PixelArtFilter extends Filter {
  
     
     /**
-     * Creates a CartoonEdgeFilter
+     * Creates a PixelArtFilter
      */
     public PixelArtFilter() {
-        super("CartoonEdgeFilter");
+        super("PixelArtFilter");
     }
 
     @Override

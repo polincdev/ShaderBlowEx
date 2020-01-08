@@ -1,10 +1,5 @@
  
 package org.shaderblowex.filter.SimpleBloom;
-
-/**
- *
- * @author xxx
- */
  
 import com.jme3.asset.AssetManager;
 import com.jme3.export.InputCapsule;
@@ -31,6 +26,11 @@ public class SimpleBloomFilter extends Filter {
     private float strength=DEFAULT_STENGTH;
     private float size=DEFAULT_SIZE;
      private int samples=DEFAULT_SAMPLES;
+     
+     
+    public SimpleBloomFilter(  ) {
+      super("SimpleBloomFilter");
+    }
     /**
      * Creates a bloomfilter with the specified   strength, size and samples.
      * 
@@ -39,7 +39,7 @@ public class SimpleBloomFilter extends Filter {
      * @param samples Samples. Default 10
      */
     public SimpleBloomFilter(  float strength, float size, int samples) {
-      super("SimpleBloomFilter");
+     this();
      // 
       checkFloatArgument(strength, 0, 1f, "Strength");
      checkFloatArgument(size, 0, 5f, "Size");

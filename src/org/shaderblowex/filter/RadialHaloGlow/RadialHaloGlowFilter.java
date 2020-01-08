@@ -21,7 +21,11 @@ private float brightness=0.5f;
 public RadialHaloGlowFilter() {
 super("RadialHaloGlow");
 }
-
+public RadialHaloGlowFilter( float strength,float brightness) {
+this();
+this.strength=strength;
+this.brightness=brightness;
+}
 @Override
 protected void initFilter(AssetManager assetManager, RenderManager arg1, ViewPort arg2, int w, int h) {
  

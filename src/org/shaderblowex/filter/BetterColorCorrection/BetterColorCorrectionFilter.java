@@ -60,9 +60,8 @@ public class BetterColorCorrectionFilter extends Filter {
      */
      public BetterColorCorrectionFilter(float contrast, float brightness, float hue, float saturation, float invert, float red, float green, float blue, float gamma) 
        {
-        super("BetterColorCorrectionFilter");
-       
-        // 
+         this(); 
+         // 
         checkFloatArgument(contrast, 0f, 100f, "Contrast");
         checkFloatArgument(brightness, 0f, 1f, "Brightness");
         checkFloatArgument(hue, -1f, 1f, "Hue");

@@ -38,7 +38,13 @@ public class BokehDoFFilter extends Filter {
     public BokehDoFFilter() {
         super("FocusFilter");
     }
-
+ public BokehDoFFilter(float focusPoint,float radiusScale, float blurSize,float focusScale  ) {
+        this();
+        this.focusPoint = focusPoint;
+        this.radiusScale = radiusScale;
+        this.blurSize = blurSize;
+        this.focusScale = focusScale;
+    }
     @Override
     protected boolean isRequiresDepthTexture() {
         return true;

@@ -1,12 +1,6 @@
  
 package org.shaderblowex.filter.BetterToneMap;
-
-/**
- *
- * @author xxx
- */
  
-
 import com.jme3.asset.AssetManager;
 import com.jme3.export.InputCapsule;
 import com.jme3.export.JmeExporter;
@@ -66,6 +60,12 @@ public class BetterToneMapFilter extends Filter {
     private int tonemapType=DEFAULT_TONEMAP_TYPE;
     private float gamma=DEFAULT_GAMMA;
     private float exposure=DEFAULT_EXPOSURE;
+    
+    public BetterToneMapFilter( ) 
+    {
+         super("BetterToneMapFilter");
+    }
+    
     /**
      * Creates a tone-mapping filter with the specified type, exposure and gamma.
      * 
@@ -74,7 +74,7 @@ public class BetterToneMapFilter extends Filter {
      * @param gamma Gamma. Default 1.0
      */
     public BetterToneMapFilter(int tonemapType, float exposure, float gamma) {
-      super("BetterToneMapFilter");
+     this();
      // 
      checkIntArgument(tonemapType, 0, 35, "TonemapType"); 
      checkFloatArgument(exposure, 0, 10f, "Exposure");

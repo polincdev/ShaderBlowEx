@@ -14,8 +14,10 @@ import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
 import com.jme3.post.FilterPostProcessor;
+import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
+import com.jme3.scene.shape.Quad;
 import org.shaderblowex.filter.OilPaint.OilPaintFilter;
  
  
@@ -49,10 +51,12 @@ public class OilPaintFilterTest extends SimpleApplication  implements ActionList
         //faster cam
         cam.setLocation(cam.getLocation().addLocal(0, 2f, 0));
         flyCam.setMoveSpeed(2.0f);
-        //2D  reference image
-       Material    geoMat = new Material(this.getAssetManager(),  "Common/MatDefs/Misc/Unshaded.j3md");
+          //2D  reference image
+        Geometry geometry= new Geometry("ToneMapFilterGeo",new Quad( this.getCamera().getWidth()/3  , this.getCamera().getHeight()/3  ));
+        Material    geoMat = new Material(this.getAssetManager(),  "Common/MatDefs/Misc/Unshaded.j3md");
         geoMat.setTexture("ColorMap", assetManager.loadTexture("ShaderBlowEx/Textures/test.png")); 
-        
+        geometry.setMaterial(geoMat);
+        guiNode.attachChild(geometry); 
         
          //Scene
          Spatial scene= assetManager.loadModel("ShaderBlowEx/Models/testScene.j3o");

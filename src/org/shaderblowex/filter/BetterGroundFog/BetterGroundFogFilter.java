@@ -1,13 +1,4 @@
 package org.shaderblowex.filter.BetterGroundFog;
-
- 
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
  
     
 import com.jme3.asset.AssetManager;
@@ -41,7 +32,16 @@ public class BetterGroundFogFilter extends Filter {
     public BetterGroundFogFilter() {
         super("BetterGroundFogFilter");
     }
-
+  public BetterGroundFogFilter(Vector3f sunDirection,ColorRGBA sunColor,float sunShininess,ColorRGBA fogColor,float fogDensity,float groundLevel ,Vector4f fogBoundary  ) {
+        this();
+        this.sunDirection=sunDirection;
+        this. sunColor=sunColor;
+        this. sunShininess=sunShininess;
+        this. fogColor=fogColor;
+        this. fogDensity=fogDensity;
+        this. groundLevel=groundLevel;
+        this. fogBoundary=fogBoundary; 
+    }
     /**
      * sets direction of the sunlight
      *

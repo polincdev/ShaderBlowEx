@@ -13,9 +13,9 @@ public class BetterVignetteFilter extends Filter {
 	/** Default values */
 	private static final float DEFAULT_VIGNETTING_STRENGTH = 0.5f;
 	private static final float DEFAULT_VIGNETTING_EXTENT = 50f;
-         private static final float DEFAULT_BLUR_SIZE = 0.1f;
+        private static final float DEFAULT_BLUR_SIZE = 0.1f;
 	private static final float DEFAULT_BLUR_QUALITY = 20f;
-         private static final float DEFAULT_GRAY_POWER = 2.0f;
+        private static final float DEFAULT_GRAY_POWER = 2.0f;
 	private static final float DEFAULT_GRAY_MARGIN = 4f;
  
 	 
@@ -25,17 +25,23 @@ public class BetterVignetteFilter extends Filter {
         private float blurSize =DEFAULT_BLUR_SIZE;
         private float grayPower=DEFAULT_GRAY_POWER;
         private float grayMargin =DEFAULT_GRAY_MARGIN;
-         
-        
-           
+          
         
 	/**
 	 * Default Constructor.
 	 */
 	public BetterVignetteFilter() {
-		 
+		 super("BetterVignetteFilter");
 	}
-          
+        public BetterVignetteFilter(float vignetteStrength, float vignetteExtent,float blurQuality,float blurSize, float grayPower,float grayMargin  ) {
+            this();
+            this.vignetteStrength = vignetteStrength;
+            this.vignetteExtent = vignetteExtent;
+            this. blurQuality=blurQuality;
+            this.blurSize =blurSize;
+            this.grayPower=grayPower;
+            this.grayMargin =grayPower;
+	}
 	@Override
 	protected Material getMaterial() {
 		return this.material;

@@ -1,10 +1,6 @@
  
 package org.shaderblowex.filter.WhiteBloom;
-
-/**
- *
- * @author xxx
- */
+ 
  
 import com.jme3.asset.AssetManager;
 import com.jme3.export.InputCapsule;
@@ -26,12 +22,16 @@ public class WhiteBloomFilter extends Filter {
       private float strength=DEFAULT_STRENGTH;
        private float scale=DEFAULT_SCALE;
      
+       
+   public WhiteBloomFilter(  ) {
+      super("WhiteBloomFilter");
+   }
     /**
      * Creates white bloom  filter with the specified strength. 
      * @param strength Strength. Default 0.1. Max 5.0. Min 0.0
      */
     public WhiteBloomFilter(  float strength) {
-      super("WhiteBloomFilter");
+      this();
      // 
       checkFloatArgument(strength, 0f, 10f, "Strength");
      //

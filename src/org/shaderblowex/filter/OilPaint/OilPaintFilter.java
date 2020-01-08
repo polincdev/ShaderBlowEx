@@ -1,12 +1,6 @@
  
 package org.shaderblowex.filter.OilPaint;
-
-/**
- *
- * @author xxx
- */
  
-
 import com.jme3.asset.AssetManager;
 import com.jme3.export.InputCapsule;
 import com.jme3.export.JmeExporter;
@@ -37,7 +31,7 @@ public class OilPaintFilter extends Filter {
        * @param strength Strength. Default 5. Max 25 . Min 1.0
      */
     public OilPaintFilter(  int strength) {
-      super("OilPaintFilter");
+     this();
      // 
        checkIntArgument(strength, 1, 25, "Strength");
      //

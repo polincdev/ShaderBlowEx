@@ -24,13 +24,17 @@ public class BleachFilter extends Filter {
             
      private float strength=DEFAULT_STRENGTH;
      
+     
+      public BleachFilter(  ) {
+      super("BleachMapFilter");
+      }
     /**
      * Creates a bleach filter with the specified strength. 
      * Bleach - washed out, desaturated look from Saving Private Ryan or Minority Report
       * @param strength Strength. Default 0.1. Max 5.0. Min 0.0
      */
     public BleachFilter(  float strength) {
-      super("BleachMapFilter");
+     this();
      // 
       checkFloatArgument(strength, 0f, 5f, "Strength");
      //

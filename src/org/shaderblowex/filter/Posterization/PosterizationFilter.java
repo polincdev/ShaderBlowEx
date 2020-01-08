@@ -1,11 +1,5 @@
  
 package org.shaderblowex.filter.Posterization;
-
-/**
- *
- * @author xxx
- */
- 
  
 import com.jme3.asset.AssetManager;
 import com.jme3.export.InputCapsule;
@@ -25,12 +19,16 @@ public class PosterizationFilter extends Filter {
             
      private float step=DEFAULT_STEP;
      
+     
+      public PosterizationFilter(  ) {
+      super("Posterization");
+      }
     /**
      * Creates a white highlighting filter with the specified strength. 
        * @param step Step. Default 10. Max 1.0. Min 50.0
      */
     public PosterizationFilter(  float step) {
-      super("Posterization");
+      this();
      // 
       checkFloatArgument(step, 1f, 50f, "Step");
      //

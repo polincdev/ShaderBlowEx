@@ -25,9 +25,17 @@ public class BetterDepthOfFieldFilter extends Filter {
       private boolean showFocus = false;
      
 
-    public BetterDepthOfFieldFilter() {
+   public BetterDepthOfFieldFilter() {
+        super("BetterDepthOfFieldFilter");
     }
-
+ public BetterDepthOfFieldFilter(float focalDepth,float focalLength,float fStop,boolean autoFocus,boolean showFocus) {
+      this();
+     this.focalDepth = focalDepth;
+      this.focalLength= focalLength;
+      this.fStop =fStop;
+      this.autoFocus= autoFocus;
+      this.showFocus = showFocus;
+    }
     @Override
     public boolean isRequiresSceneTexture() {
         return true;
