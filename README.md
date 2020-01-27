@@ -635,3 +635,34 @@ https://www.reddit.com/r/shaders/comments/5e7026/help_making_an_oil_paint_post_p
 
 ![OilPaintFilter](../master/img/OilPaintFilter.jpg)
 
+
+# 20. LensFlare
+
+## Usage: 
+```
+//Init 
+float currentSpacing=0.125f;
+float currentDistance=0.5f;
+float currentThreshold=0.2f;
+//
+LensFlareFilter lensFlareFilter = new LensFlareFilter( ); 
+lensFlareFilter.setGhostSpacing(currentSpacing);
+lensFlareFilter.setHaloDistance(currentDistance);
+lensFlareFilter.setLightMapThreshold(currentThreshold);
+FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+fpp.addFilter(lensFlareFilter);
+viewPort.addProcessor(fpp);
+//Modify
+lensFlareFilter.setGhostSpacing(currentSpacing);
+lensFlareFilter.setHaloDistance(currentDistance);
+lensFlareFilter.setLightMapThreshold(currentThreshold);
+```
+#### Credits:
+
+https://hub.jmonkeyengine.org/t/lens-flare-code-small-update-screens/23796
+  
+#### Test:
+
+![LensFlareFilter](../master/img/LensFlareFilter.jpg)
+
+
