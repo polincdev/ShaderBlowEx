@@ -1,0 +1,54 @@
+MaterialDef LensFlare {
+
+
+
+MaterialParameters {
+
+Int NumSamples
+
+Texture2D Texture
+
+Texture2D LensDirt
+
+Texture2D LightMap
+
+Float Ghost
+
+Float Halo
+
+}
+
+
+
+Technique {
+
+VertexShader GLSL100: ShaderBlowEx/MatDefs/LensFlare/LensFlare.vert
+
+FragmentShader GLSL100: ShaderBlowEx/MatDefs/LensFlare/LensFlare.frag
+
+
+
+WorldParameters {
+
+WorldViewProjectionMatrix
+
+WorldViewMatrix
+
+Time
+
+}
+
+
+
+Defines {
+
+HAS_LENSDIRT : LensDirt
+
+}
+
+}
+
+} 
+
+ 
+

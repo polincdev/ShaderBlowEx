@@ -4,7 +4,7 @@
 // https://github.com/GPUOpen-Effects/FidelityFX
 // https://github.com/cansik/processing-postfx
  
-uniform vec3 m_WhitePoint;
+ 
 varying vec2 texCoord;
 uniform float m_Gamma;
 uniform float m_Exposure;
