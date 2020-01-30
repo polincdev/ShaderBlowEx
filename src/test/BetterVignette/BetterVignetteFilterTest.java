@@ -108,9 +108,7 @@ public class BetterVignetteFilterTest extends SimpleApplication  implements Acti
         inputManager.addListener(this, new String[]{"GrPwInc"});
        inputManager.addListener(this, new String[]{"GrMarDec"});
         inputManager.addListener(this, new String[]{"GrMarInc"});
-         
-          float grayPower=2.0f;
-  float grayMargin =4.0f;
+          
         
         //Text
         BitmapFont font =  getAssetManager().loadFont("Interface/Fonts/Default.fnt");
@@ -255,9 +253,9 @@ public class BetterVignetteFilterTest extends SimpleApplication  implements Acti
                grayMargin=10.0f;
            refreshDisplay();
 	    //
-          
+          betterVignetteFilter.setGrayMargin(grayMargin);
         }
-        else  if(name.equals("GrMarDec")) betterVignetteFilter.setGrayMargin(grayMargin);
+        else  if(name.equals("GrMarDec")) 
         {
            grayMargin-=0.1f;   
            if(grayMargin<0)
