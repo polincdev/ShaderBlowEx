@@ -1,5 +1,5 @@
  
-package org.shaderblowex.filter.WhiteBloom;
+package main.java.org.shaderblowex.filter.WhiteBloom;
  
  
 import com.jme3.asset.AssetManager;
